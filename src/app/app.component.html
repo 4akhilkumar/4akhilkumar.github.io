@@ -1,0 +1,81 @@
+<mat-drawer-container>
+    <mat-drawer #drawer class="side-nav">
+        <mat-list role="list" class="side-list">
+            <mat-list-item routerLink='/dashboard' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <mat-icon class="example-tab-icon">dashboard</mat-icon>
+                </mat-icon>
+                <div mat-line>Dashboard</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item routerLink='/welcome' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <mat-icon class="example-tab-icon">home</mat-icon>
+                </mat-icon>
+                <div mat-line>Home</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item routerLink='/travel' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <mat-icon class="example-tab-icon">card_travel</mat-icon>
+                </mat-icon>
+                <div mat-line>Travel</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item routerLink='/tourism' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <mat-icon class="example-tab-icon">tour</mat-icon>
+                </mat-icon>
+                <div mat-line>Tourism</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item routerLink='/hospitality' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <mat-icon class="example-tab-icon">night_shelter</mat-icon>
+                </mat-icon>
+                <div mat-line>Hospitality</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item routerLink='/donate' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <mat-icon class="example-tab-icon">monetization_on</mat-icon>
+                </mat-icon>
+                <div mat-line>Your Kind Help | Donation</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item routerLink='/contactus' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <mat-icon class="example-tab-icon">contact_page</mat-icon>
+                </mat-icon>
+                <div mat-line>Contact us</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item routerLink='/aboutus' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <i class="material-icons">groups</i>
+                </mat-icon>
+                <div mat-line>About Us</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+    </mat-drawer>
+    <mat-drawer-content fxLayout="column" fxFlexFill>
+      
+      <div fxLayout="row" fxLayoutAlign="space-between center" style="background-color: rgb(241, 97, 92);height: 65px;color: white;padding-right: 5px;">
+        <div fxLayoutAlign="center center">
+            <button mat-icon-button (click)="drawer.toggle()" style="outline: none;"><span class="material-icons">menu</span></button>
+            <span class="font-weight-bold" style="font-weight: bold;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: large;">WhiN's Travel, Tourism & Hospitality</span>
+        </div>
+        <div fxLayoutAlign="center center">
+            <!-- <button style="outline: none;" *ngIf="_authService.loggedIn()" mat-raised-button style="margin-right:20px" routerLink='/dashboard' routerLinkActive='active1'><i class="material-icons">dashboard</i> Dashboard</button> -->
+            <button style="outline: none;" *ngIf="!_authService.loggedIn()" mat-raised-button style="margin-right:20px" routerLink='/login' routerLinkActive='active2'><i class="material-icons">login</i>Login</button>
+            <button style="outline: none;" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" mat-button routerLinkActive='active'><i class="material-icons">login</i>Logout</button>
+        </div>
+    </div>
+        
+    <div fxFlex>
+        <router-outlet></router-outlet>
+    </div>
+        <app-footer></app-footer>
+    </mat-drawer-content>
+</mat-drawer-container>

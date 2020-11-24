@@ -1,0 +1,38 @@
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">card_travel</mat-icon>
+      Travelling Logs
+      <mat-icon class="example-tab-icon">dashboard</mat-icon>
+    </ng-template>
+    <app-traveldashboard></app-traveldashboard>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">tour</mat-icon>
+      Tourism Logs
+      <mat-icon class="example-tab-icon">dashboard</mat-icon>
+    </ng-template>
+    <app-tourdashboard></app-tourdashboard>
+  </mat-tab>
+
+  <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">night_shelter</mat-icon>
+        Hospitality Logs
+        <mat-icon class="example-tab-icon">dashboard</mat-icon>
+      </ng-template>
+      <app-hospitalitydashboard></app-hospitalitydashboard>
+    </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">monetization_on</mat-icon>
+      Donation Logs
+      <mat-icon class="example-tab-icon">dashboard</mat-icon>
+    </ng-template>
+    <app-donationdashboard></app-donationdashboard>
+  </mat-tab>
+</mat-tab-group>
+<!-- {{booktraveldata | json}} -->

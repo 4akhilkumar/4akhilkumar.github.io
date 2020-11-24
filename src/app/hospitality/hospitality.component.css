@@ -1,0 +1,31 @@
+.jumbo {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 20px;
+    padding: 70px 30px;
+    background: rgba(41, 224, 123, 0.5);
+    color: #000000;;
+    min-height: 100px;
+    box-shadow: 5px 5px #888888;
+
+}
+
+.example-card {
+    background-color: rgb(95, 221, 238);
+    max-width: 359px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 5px rgba(95, 221, 238, 0.4);
+}
+
+.button {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+}

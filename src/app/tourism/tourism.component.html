@@ -1,0 +1,215 @@
+<div class="jumbo"
+    fxLayout="row"
+    fxLayout.sm="column" 
+    fxLayout.xs="column" 
+    fxLayoutAlign.xs="start center"
+    fxLayoutAlign.sm="start center" 
+    fxLayoutAlign.gt-sm="start center" 
+    fxLayoutGap="10px">
+  
+    <div fxFlex fxFlex.gt-sm="100%">
+      <h1 style="font-weight: bold;font-size: x-large; text-align: center;">The Tourism</h1>
+      <p style="font-size: large; text-align: center;">
+        India is a vibrant land of startling contrasts where both the traditional and modern worlds meet. 
+        The world's seventh largest nation by area and the second largest in terms of population, 
+        India boasts a rich heritage that's the result of centuries of different cultures and religions 
+        leaving their mark. Things to do for travelers include the opportunity to experience an array of 
+        sacred sites and spiritual encounters, while nature lovers will enjoy its sun-washed beaches, 
+        lush national parks, and exciting wildlife sanctuaries.
+      </p>
+    </div>
+</div>
+ 
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>The Taj Mahal</mat-card-title>
+    <mat-card-subtitle>Agra, India</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/images/tourism/t1.jpg">
+  <mat-card-content>
+    <p>
+      Taj Mahal is also the world's most famous testimony to the power of love. Named after Mumtaz Mahal, 
+      the favorite wife of Emperor Shah Jahan, this most beautiful of mausoleums was ...
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openDialogTajmahal()" class="button">More...</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>The Holy City of Varanasi</mat-card-title>
+    <mat-card-subtitle>Varanasi, India</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/images/tourism/t2.jpg">
+  <mat-card-content>
+    <p>
+      A major pilgrimage center for Hindus, the holy city of Varanasi has long been associated with the 
+      mighty Ganges River, one of the faith's most important religious symbols. Dating back to the 8th ...
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openDialogVaranasi()" class="button">More...</button>  </mat-card-actions>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Harmandir Sahib</mat-card-title>
+    <mat-card-subtitle>Punjab, India</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/images/tourism/t3.jpg">
+  <mat-card-content>
+    <p>
+      Founded in 1577 by Ram Das, Amritsar is an important hub of Sikh history and culture. The main attraction 
+      here is Harmandir Sahib, opened in 1604 and still often referred to as the Golden Temple ... 
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openDialogHarmandir()" class="button">More...</button>  </mat-card-actions>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>The Golden City: Jaisalmer</mat-card-title>
+    <mat-card-subtitle>Rajasthan, India</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/images/tourism/t4.jpg">
+  <mat-card-content>
+    <p>
+      The Golden City of Jaisalmer is an oasis of splendid old architecture that rises from the sand dunes 
+      of the Thar Desert. Once a strategic outpost, today the city is filled with splendid old mansions ...
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openDialogJaisalmer()" class="button">More...</button>  </mat-card-actions>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>The Red Fort</mat-card-title>
+    <mat-card-subtitle>New Delhi, India</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/images/tourism/t5.jpg">
+  <mat-card-content>
+    <p>
+      The seat of Mughal power-a role it maintained until 1857-the magnificent crescent-shaped Red Fort 
+      in New Delhi, named after the stunning red sandstone used in its construction, covers a vast 
+      area of ...
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openDialogRedfort()" class="button">More...</button>  </mat-card-actions>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Mumbai: The Gateway of India</mat-card-title>
+    <mat-card-subtitle>Explore The Realms Of Wildlife</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/images/tourism/t6.jpg">
+  <mat-card-content>
+    <p>
+      Standing an impressive 26 meters tall and overlooking the Arabian Sea, the iconic Gateway of India 
+      is a must-see when in Mumbai. Built to commemorate the arrival of King George V ...
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openDialogGoi()" class="button">More...</button>  </mat-card-actions>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Mecca Masjid</mat-card-title>
+    <mat-card-subtitle>Hyderabad, India</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/images/tourism/t7.jpg">
+  <mat-card-content>
+    <p>
+      Construction of Hyderabad's Mecca Masjid, one of the world's largest mosques-and one of the oldest 
+      in India-began in 1614 during Mohammed Quli Qutub Shah's reign and took almost 80 years ...
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openDialogMeccamasjid()" class="button">More...</button>  </mat-card-actions>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Amer Fort</mat-card-title>
+    <mat-card-subtitle>Jaipur, India</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/images/tourism/t8.jpg">
+  <mat-card-content>
+    <p>
+      Amer Fort (often also spelt "Amber") was built as a fortified palace in 1592 by Maharaja Man Singh I and 
+      has long served as the capital of Jaipur. Carved high up into the hillside, the fort is accessible on ...
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openDialogAmerfort()" class="button">More...</button>  </mat-card-actions>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>The Beaches of Goa</mat-card-title>
+    <mat-card-subtitle>Goa, India</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/images/tourism/t9.jpg">
+  <mat-card-content>
+    <p>
+      Goa's more than 60 miles of coastline is home to some of the world's loveliest beaches, each with their 
+      own particular appeal. For those looking for peace and quiet, isolated Agonda Beach ...
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openDialogBog()" class="button">More...</button>  </mat-card-actions>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Periyar National Park and ...</mat-card-title>
+    <mat-card-subtitle>Madurai, India</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/images/tourism/t10.jpg">
+  <mat-card-content>
+    <p>
+      One of South India's most popular tourist attractions, Periyar National Park and Wildlife Sanctuary 
+      is centered around a lake built by British engineers in 1895 for irrigation and to provide water ...
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openDialogPeriyar()" class="button">More...</button>  </mat-card-actions>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Agra Fort</mat-card-title>
+    <mat-card-subtitle>Agra, India</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/images/tourism/t11.jpg">
+  <mat-card-content>
+    <p>
+      Built as a military structure in 1565 by Emperor Akbar with later additions by Shah Jahan, the stunning 
+      Agra Fort (also known as Agra's Red Fort) is an interesting mix of both ...
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openDialogAgrafort()" class="button">More...</button>   </mat-card-actions>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>The Ellora Caves</mat-card-title>
+    <mat-card-subtitle>Aurangabad, India</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/images/tourism/t12.jpg">
+  <mat-card-content>
+    <p>
+      The famous monumental Ellora Caves were built between the 5th and 10th centuries by Buddhist, 
+      Jain, and Hindu monks, and make for an excellent excursion from Mumbai, some 300 ...
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openDialogElloracaves()" class="button">More...</button>   </mat-card-actions>
+</mat-card>

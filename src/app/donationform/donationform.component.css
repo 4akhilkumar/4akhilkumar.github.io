@@ -1,0 +1,53 @@
+.example-card {
+  width: 350px;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0px 0px 5px 5px rgb(245, 242, 242);
+  border-radius: 20px;
+  }
+
+.example {
+  width: 250px;
+  margin-top: 10px;
+}
+
+.title {
+  font-family: "Cera Pro", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  color: white;
+  background: linear-gradient(to right, #66ff66 0%, #00ffff 100%);
+  justify-content: center;
+  text-transform: uppercase;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.example-button {
+  margin: 10px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  background: linear-gradient(to left, #66ff66 0%, #00ffff 100%);
+  justify-content: center;
+  width: auto;
+}
+
+.example-form {
+  min-width: 250px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.jumbo {
+  padding: 18px 30px;
+  color: #161515;
+  text-shadow: 2px 2px 4px #faf5f5;
+}
+
+.quote {
+  color: #58daae;
+  text-shadow: 2px 2px 4px #faf5f5;
+}

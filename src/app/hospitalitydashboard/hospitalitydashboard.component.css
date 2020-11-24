@@ -1,0 +1,7 @@
+.example-card {
+    max-width: auto;
+    display: inline-block;
+    background-color: rgb(95, 221, 238);
+    box-shadow: 0px 0px 5px 5px rgba(95, 221, 238, 0.4);
+    border-radius: 20px;
+}

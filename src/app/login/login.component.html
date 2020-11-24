@@ -1,0 +1,51 @@
+<div fxLayout="row" fxLayoutGap="10px" fxLayout.sm="column" fxLayout.xs="column" style="background-image: url(../../../assets/images/login.jpg); background-repeat: no-repeat; background-size: 100% 105%;">
+  <div class="jumbo">
+    <h1 style="font-weight: bold;font-size: x-large;">
+      <span class="material-icons" style="padding-top: 50px;">login</span>
+      Hey there! Just Login with your Strong Credentials that what you had created back there.<br> And surf with WhiN service and Features...
+    </h1>
+    <mat-divider></mat-divider>
+    <br>
+    <h2 style="font-size: large;">
+      <span class="material-icons">warning</span>
+      NOTE: Don't share your Login Credentials with anyone even to your near one's. If you recieve any messages from strangers to 
+      share your Credentials i.e., any confidential Information then immediately raise the complaint regarding this to Cyber-Crime Department.
+      Office Number: 040-27852412
+    </h2>
+    <button mat-raised-button class="button" routerLink="/contactus" >Contact Us</button>
+  </div>
+  <div fxLayoutAlign="center center" style="padding: 40px;">
+    <div fxLayout="column" fxLayoutAlign="" class="login-card">
+      <mat-card class="example-card">
+        <mat-toolbar class="title" color="primary">
+          <span class="material-icons">login</span>Login</mat-toolbar>
+              <div fxLayout="column" fxLayoutAlign="center center">
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+                  <mat-icon><i class="fa fa-user-circle" aria-hidden="true"></i></mat-icon>
+                  <mat-form-field class="example">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [formControl]="loginUserData.email" placeholder="Email" required>
+                    <mat-error *ngIf="loginUserData.email.invalid">{{getErrorMessage()}}</mat-error>
+                  </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+                  <mat-icon><span class="material-icons">vpn_key</span></mat-icon>
+                  <mat-form-field class="example">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [formControl]="loginUserData.password" placeholder="Password" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="loginUserData.password.invalid">{{getError()}}</mat-error>
+                  </mat-form-field>
+                </div>
+                
+                <p class="agree" (click)="openDialogTandC()">By Login, You accept our terms & conditions</p>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="center" style="margin-bottom: 5px;">
+                <button mat-raised-button (click)="loginUser()" [disabled]="loginUserData.password.invalid || loginUserData.email.invalid" class="example-button">Login</button>
+              </div>
+              <p class="text" style="cursor: pointer;outline:none" routerLink="/register">New to WhiN? Create an Account</p>
+      </mat-card>
+  </div>
+</div>
