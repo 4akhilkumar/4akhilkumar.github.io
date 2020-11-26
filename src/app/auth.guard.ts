@@ -4,7 +4,6 @@ import { AuthService } from './auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { TermsandconditionsComponent } from './termsandconditions/termsandconditions.component';
-import { style } from '@angular/animations';
 
 @Injectable({
   providedIn: 'root'

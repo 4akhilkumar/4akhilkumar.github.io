@@ -14,8 +14,8 @@ let booktourSchema = new Schema({
         type:String,
         required:true
     },
-    nop :{
-        type:Number,
+    money :{
+        type:String,
         required:true
     },
     phone :{

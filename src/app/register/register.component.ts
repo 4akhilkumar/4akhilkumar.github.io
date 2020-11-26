@@ -15,10 +15,10 @@ import { TermsandconditionsComponent } from '../termsandconditions/termsandcondi
 export class RegisterComponent implements OnInit {
   hide=true;
 
-  registerUserData = { username: "", email: "", password: "" }
+  registerUserData = { name: "", email: "", password: "" }
   
   registerData={
-    username:new FormControl('',[Validators.required]),
+    name:new FormControl('',[Validators.required]),
     email:new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',[Validators.required,Validators.minLength(6)]),
   }
@@ -27,7 +27,6 @@ export class RegisterComponent implements OnInit {
     this.dialog.open(TermsandconditionsComponent,{width:'500px',height:'700px'})
   }
  
-  
   getErrorMessage() {
     if (this.registerData.email.hasError('required')) {
       return 'Email is required';
@@ -41,15 +40,15 @@ export class RegisterComponent implements OnInit {
       return 'Password is required';
     }
     else if(this.registerData.password.hasError('minlength')){
-      return 'Password must be a minimum length of 6';
+      return 'Password must be a minimum length of 8 and should contain Upper & Lower Cases with Characters';
     }
   }
   getMessage(){
-    if (this.registerData.username.hasError('required')) {
+    if (this.registerData.name.hasError('required')) {
       return 'Name is required';
     }
-    else if(this.registerData.username.hasError('minlength')){
-      return 'Name must be a minimum length of 2';
+    else if(this.registerData.name.hasError('minlength')){
+      return 'Name must be a minimum length of 3';
     }
   }
 
@@ -62,7 +61,7 @@ export class RegisterComponent implements OnInit {
 
   registerUser() {
     this.registerUserData.email=this.registerData.email.value;
-    this.registerUserData.username=this.registerData.username.value;
+    this.registerUserData.name=this.registerData.name.value;
     this.registerUserData.password=this.registerData.password.value;
     this._auth.registerUser(this.registerUserData)
     .subscribe(
@@ -71,7 +70,7 @@ export class RegisterComponent implements OnInit {
           duration: 3000,
         });
         localStorage.setItem('token', res.token)
-        this._router.navigate(['/home'])
+        this._router.navigate(['/welcome'])
       },
       err => {
         if( err instanceof HttpErrorResponse ) {
@@ -80,10 +79,10 @@ export class RegisterComponent implements OnInit {
               duration: 3000,
             });
             this.registerData.email.reset();
-            this.registerData.username.reset();
+            this.registerData.name.reset();
             this.registerData.password.reset();
             this.registerUserData.email="";
-            this.registerUserData.username="";
+            this.registerUserData.name="";
             this.registerUserData.password="";
           }
         }

@@ -36,7 +36,7 @@ export class DonationformComponent implements OnInit {
       return 'Name is required';
     }
     else if(this.registerData.name.hasError('minlength')){
-      return 'Name must be a minimum length of 2';
+      return 'Name must be a minimum length of 3';
     }
   }
   getMessageMoney(){

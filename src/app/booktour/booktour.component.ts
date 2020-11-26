@@ -13,12 +13,12 @@ import { BooktourService } from '../booktour.service';
 })
 export class BooktourComponent implements OnInit {
   hide=true;
-  registerUserData = {userid:null, place:"", name:"", nop:"", lplace:"", phone:"", doa:"", dod:"", email: "" }
+  registerUserData = {userid:null, place:"", name:"", money:"", lplace:"", phone:"", doa:"", dod:"", email: "" }
 
   registerData={
     place:new FormControl('',[Validators.required]),
     name:new FormControl('',[Validators.required]),
-    nop:new FormControl('',[Validators.required]),
+    money:new FormControl('',[Validators.required]),
     lplace:new FormControl('',[Validators.required]),
     phone:new FormControl('',[Validators.required]),
     doa:new FormControl('',[Validators.required]),
@@ -39,12 +39,7 @@ export class BooktourComponent implements OnInit {
       return 'Name is required';
     }
     else if(this.registerData.name.hasError('minlength')){
-      return 'Name must be a minimum length of 2';
-    }
-  }
-  getMessageNop(){
-    if (this.registerData.nop.hasError('required')) {
-      return 'Member(s) is required';
+      return 'Name must be a minimum length of 3';
     }
   }
   getMessagePhone(){
@@ -85,7 +80,7 @@ export class BooktourComponent implements OnInit {
         this.registerUserData.userid=data;
         this.registerUserData.place=this.registerData.place.value;
         this.registerUserData.name=this.registerData.name.value;
-        this.registerUserData.nop=this.registerData.nop.value;
+        this.registerUserData.money=this.registerData.money.value;
         this.registerUserData.lplace=this.registerData.lplace.value;
         this.registerUserData.phone=this.registerData.phone.value;
         this.registerUserData.doa=this.registerData.doa.value;
@@ -94,16 +89,16 @@ export class BooktourComponent implements OnInit {
         this._booktour.booktour(this.registerUserData)
         .subscribe(
           res => {
-            this.snackbar.open('Your Tour Booked SUCCESSFULL', 'OK', {
-              duration: 10000,
+            this.snackbar.open('Your Tour Booked Successfully.', 'Okay!', {
+              duration: 4000,
             });
             this._router.navigate(['/dashboard'])
           },
           err => {
             if( err instanceof HttpErrorResponse ) {
               if (err.status === 409) {
-                this.snackbar.open('Oops! Some thing went wrong.', 'OK', {
-                  duration: 10000,
+                this.snackbar.open('Oops! Some Thing Went Wrong.', 'Okay!', {
+                  duration: 4000,
                 });
               }
             }

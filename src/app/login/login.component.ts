@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       return 'Password is required';
     }
     else if(this.loginUserData.password.hasError('minlength')){
-      return 'Password must be a minimum length of 6';
+      return 'Password must be a minimum length of 8 and should contain Upper & Lower Cases with Characters';
     }
   }
 

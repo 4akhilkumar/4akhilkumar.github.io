@@ -18,34 +18,10 @@
               <mat-icon><i class="fa fa-user-circle" aria-hidden="true"></i></mat-icon>
                 <mat-form-field class="example">
                   <mat-label>Name</mat-label>
-                    <input matInput type="text" pattern="[A-Za-z]{3,}" pattern="[^'\x22]+" [formControl]="registerData.name" placeholder="Name" required>
+                  <input matInput type="text"required minlength="3" onkeypress="return (event.charCode > 64 && 
+                  event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" [formControl]="registerData.name" placeholder="Name" required>
                       <mat-error *ngIf="registerData.name.invalid">{{getMessageName()}}</mat-error>
                 </mat-form-field>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-              <mat-icon><span class="material-icons">person_add</span></mat-icon>
-                <mat-form-field class="example">
-                  <mat-label>No of Persons</mat-label>
-                    <input matInput type="number" [formControl]="registerData.nop" placeholder="No. Of Persons" required>
-                    <mat-error *ngIf="registerData.nop.invalid">{{getMessageNop()}}</mat-error>
-                </mat-form-field>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-              <mat-icon>
-                <span class="material-icons">room_preferences</span>
-              </mat-icon>
-              <mat-form-field class="example">
-                <mat-label>Type of Room</mat-label>
-                <mat-select [formControl]="registerData.tor">
-                  <mat-option value="Ordinary Space">Ordinary Space</mat-option>
-                  <mat-option value="Deluxe Space">Deluxe Space</mat-option>
-                  <mat-option value="Luxury Space">Luxury Space</mat-option>
-                  <mat-option value="Ultra Ordinary Space">Ultra Ordinary Space</mat-option>
-                  <mat-option value="Ultra Deluxe Space">Ultra Deluxe Space</mat-option>
-                  <mat-option value="Ultra Luxury Space">Ultra Luxury Space</mat-option>
-                </mat-select>
-                <mat-error *ngIf="registerData.tor.invalid">{{getMessageTor()}}</mat-error>
-              </mat-form-field>
             </div>
             <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
               <mat-icon><span class="material-icons">phone</span></mat-icon>
@@ -53,6 +29,14 @@
                   <mat-label>Phone Number</mat-label>
                     <input matInput type="number" pattern=".{10}" [formControl]="registerData.phone" placeholder="Phone Number" required>
                     <mat-error *ngIf="registerData.phone.invalid">{{getMessagePhone()}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+              <mat-icon><span class="material-icons">email</span></mat-icon>
+                <mat-form-field class="example">
+                  <mat-label>Email</mat-label>
+                      <input matInput type="email" pattern="[^'\x22]+" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [formControl]="registerData.email" placeholder="Email" required>
+                      <mat-error *ngIf="registerData.email.invalid">{{getErrorMessage()}}</mat-error>
                 </mat-form-field>
             </div>
             <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
@@ -72,14 +56,6 @@
                 </mat-form-field>
             </div>
             <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-              <mat-icon><span class="material-icons">email</span></mat-icon>
-                <mat-form-field class="example">
-                  <mat-label>Email</mat-label>
-                      <input matInput type="text" pattern="[^'\x22]+" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [formControl]="registerData.email" placeholder="Email" required>
-                      <mat-error *ngIf="registerData.email.invalid">{{getErrorMessage()}}</mat-error>
-                </mat-form-field>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
               <mat-icon><i class="fa fa-user-circle" aria-hidden="true"></i></mat-icon>
                 <mat-form-field class="example">
                   <mat-label>Living Place</mat-label>
@@ -87,9 +63,32 @@
                       <mat-error *ngIf="registerData.lplace.invalid">{{getMessageLplace()}}</mat-error>
                 </mat-form-field>
             </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+              <p>Please scan the QR Code to Pay the Money.</p>
+            </div>
+            <div fxLayout="row" fxLayoutGap="5px" fxLayout.sm="column" fxLayout.xs="column">
+              <img src="../assets/images/donateQRCode.png" style="height: 200px">
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+              <mat-icon>
+                <span class="material-icons">monetization_on</span>
+              </mat-icon>
+              <mat-form-field class="example">
+              <mat-label>Price for the Type of Room</mat-label>
+              <mat-select [formControl]="registerData.money">
+                <mat-option value="150">$150 - Ordinary Space</mat-option>
+                <mat-option value="200">$200 - Deluxe Space</mat-option>
+                <mat-option value="250">$250 - Luxury Space</mat-option>
+                <mat-option value="300">$300 - Ultra Ordinary Space</mat-option>
+                <mat-option value="350">$350 - Ultra Deluxe Space</mat-option>
+                <mat-option value="400">$400 - Ultra Luxury Space</mat-option>
+                <mat-error *ngIf="registerData.money.invalid"></mat-error>
+              </mat-select>
+              </mat-form-field>
+            </div>
           </div>
           <div fxLayout="row" fxLayoutAlign="center">
-            <button mat-raised-button color="primary" (click)="registerUser()" [disabled]="registerData.phone.invalid || registerData.email.invalid || registerData.name.invalid|| registerData.lplace.invalid || registerData.nop.invalid || registerData.tor.invalid || registerData.doa.invalid || registerData.dod.invalid" class="example-button">Book My Space</button>
+            <button mat-raised-button color="primary" (click)="registerUser()" [disabled]="registerData.phone.invalid || registerData.email.invalid || registerData.name.invalid|| registerData.lplace.invalid || registerData.doa.invalid || registerData.dod.invalid || registerData.money.invalid" class="example-button">Book My Space</button>
               </div>
         </mat-card>
       </div>

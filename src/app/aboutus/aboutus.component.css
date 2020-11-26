@@ -1,38 +1,17 @@
 .jumbo {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin: 10px 10px;
     border-radius: 20px;
     padding: 70px 30px;
-    /* background: rgba(255, 215, 64, 0.6); */
-    background: linear-gradient(to bottom, #ffd740 0%, #ffffff 110%);
-    color: #000000;;
     min-height: 100px;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
 }
-
-.mini-jumbo {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
-    border-radius: 20px;
-    padding: 70px 30px;
-    /* background: rgba(64, 255, 245, 0.6); */
-    background: linear-gradient(to bottom, #40fff5 0%, #ffffff 110%);
-    color: #000000;;
-    min-height: 100px;
-}
-
-.mini-jumbo2 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
-    border-radius: 20px;
-    padding: 70px 30px;
-    /* background: rgb(231, 58, 58); */
-    background: linear-gradient(to bottom, #ff0000 0%, #ffffff 110%);
-    color: #fdfdfd;;
-    min-height: 100px;
-}
+  
+  .jumbo:hover {
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow: 0 24px 36px rgba(0,0,0,0.11), 0 24px 46px var(--box-shadow-color);
+  }
+  
+  .jumbo:hover .overlay {
+    transform: scale(4) translateZ(0);
+  }

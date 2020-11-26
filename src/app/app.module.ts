@@ -62,6 +62,7 @@ import { TourdashboardComponent } from './tourdashboard/tourdashboard.component'
 import { HospitalitydashboardComponent } from './hospitalitydashboard/hospitalitydashboard.component';
 import { DonationdashboardComponent } from './donationdashboard/donationdashboard.component';
 import { TermsandconditionsComponent } from './termsandconditions/termsandconditions.component';
+import { OberoiComponent } from './hospitalityplaces/oberoi/oberoi.component';
 
 @NgModule({
   declarations: [
@@ -119,6 +120,7 @@ import { TermsandconditionsComponent } from './termsandconditions/termsandcondit
     HospitalitydashboardComponent,
     DonationdashboardComponent,
     TermsandconditionsComponent,
+    OberoiComponent,
   ],
   imports: [
     BrowserModule,

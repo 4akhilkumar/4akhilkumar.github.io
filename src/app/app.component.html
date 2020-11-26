@@ -71,8 +71,7 @@
             <button style="outline: none;" *ngIf="!_authService.loggedIn()" mat-raised-button style="margin-right:20px" routerLink='/login' routerLinkActive='active2'><i class="material-icons">login</i>Login</button>
             <button style="outline: none;" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" mat-button routerLinkActive='active'><i class="material-icons">login</i>Logout</button>
         </div>
-    </div>
-        
+    </div>   
     <div fxFlex>
         <router-outlet></router-outlet>
     </div>

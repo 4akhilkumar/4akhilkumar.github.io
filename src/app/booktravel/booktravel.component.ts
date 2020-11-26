@@ -14,12 +14,12 @@ import { BooktravelService } from '../booktravel.service';
 export class BooktravelComponent implements OnInit {
   qty=1;
   hide=true;
-  registerUserData = {userid:null, place:"", name:"", nop:"", phone:"", doa:"", dod:"", email: "", lplace: ""}
+  registerUserData = {userid:null, place:"", name:"", money:"", phone:"", doa:"", dod:"", email: "", lplace: ""}
 
   registerData={
     place:new FormControl('',[Validators.required]),
     name:new FormControl('',[Validators.required]),
-    nop:new FormControl('',[Validators.required]),
+    money:new FormControl('',[Validators.required]),
     phone:new FormControl('',[Validators.required]),
     doa:new FormControl('',[Validators.required]),
     dod:new FormControl('',[Validators.required]),
@@ -40,12 +40,7 @@ export class BooktravelComponent implements OnInit {
       return 'Name is required';
     }
     else if(this.registerData.name.hasError('minlength')){
-      return 'Name must be a minimum length of 2';
-    }
-  }
-  getMessageNop(){
-    if (this.registerData.nop.hasError('required')) {
-      return 'Member(s) is required';
+      return 'Name must be a minimum length of 3';
     }
   }
   getMessagePhone(){
@@ -79,15 +74,6 @@ export class BooktravelComponent implements OnInit {
     let place = this.route.snapshot.params['name'];
     this.registerData.place.setValue(place)
     }
-    add(){
-      if(this.qty<6)
-        this.qty=this.qty+1
-    }
-  
-    minus(){
-      if(this.qty>1)
-        this.qty=this.qty-1
-    }
 
   registerUser() {
     if(this._authService.getToken()){
@@ -95,7 +81,7 @@ export class BooktravelComponent implements OnInit {
         this.registerUserData.userid=data;
         this.registerUserData.place=this.registerData.place.value;
         this.registerUserData.name=this.registerData.name.value;
-        this.registerUserData.nop=this.registerData.nop.value;
+        this.registerUserData.money=this.registerData.money.value;
         this.registerUserData.phone=this.registerData.phone.value;
         this.registerUserData.doa=this.registerData.doa.value;
         this.registerUserData.dod=this.registerData.dod.value;
@@ -104,16 +90,16 @@ export class BooktravelComponent implements OnInit {
         this._booktravel.booktravel(this.registerUserData)
         .subscribe(
           res => {
-            this.snackbar.open('Your Travel Trip Booked SUCCESSFULL', 'Okay!', {
-              duration: 10000,
+            this.snackbar.open('Your Travel Trip Booked Successfully.', 'Okay!', {
+              duration: 4000,
             });
             this._router.navigate(['/dashboard'])
           },
           err => {
             if( err instanceof HttpErrorResponse ) {
               if (err.status === 409) {
-                this.snackbar.open('Oops! Some thing went wrong.', 'OK', {
-                  duration: 10000,
+                this.snackbar.open('Oops! Some Thing Went Wrong.', 'Okay!', {
+                  duration: 4000,
                 });
               }
             }

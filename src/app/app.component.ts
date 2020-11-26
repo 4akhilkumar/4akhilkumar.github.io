@@ -8,7 +8,6 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'WhiN';
-  searchText;
   constructor(public _authService: AuthService){
     
   }

@@ -8,6 +8,7 @@ import { ShangriComponent } from '../hospitalityplaces/shangri/shangri.component
 import { TajComponent } from '../hospitalityplaces/taj/taj.component';
 import { LalitComponent } from '../hospitalityplaces/lalit/lalit.component';
 import { LeelaComponent } from '../hospitalityplaces/leela/leela.component';
+import { OberoiComponent } from '../hospitalityplaces/oberoi/oberoi.component';
 
 @Component({
   selector: 'app-hospitality',
@@ -40,6 +41,9 @@ export class HospitalityComponent implements OnInit {
   }
   openDialogLeela(){
     this.dialog.open(LeelaComponent,{width:'500px',height:'700px'})
+  }
+  openDialogOberoi(){
+    this.dialog.open(OberoiComponent,{width:'500px',height:'700px'})
   }
   ngOnInit(): void {
   }

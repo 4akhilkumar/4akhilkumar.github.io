@@ -4,7 +4,6 @@ const { request } = require('http');
 
 const BooktourRoute=express.Router();
 
-
 BooktourRoute.route('/booktour').post((req, res) => {
     console.log(req.body) 
       Booktour.create(req.body)

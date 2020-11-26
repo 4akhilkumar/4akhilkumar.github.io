@@ -23,7 +23,7 @@ function verifyToken(req, res, next) {
 
 UserRoute.route('/register').post((req, res) => {
     let User = new user({
-      username : req.body.username,
+      name : req.body.name,
       email : req.body.email,
       password : bcrypt.hashSync(req.body.password, 10)
     })

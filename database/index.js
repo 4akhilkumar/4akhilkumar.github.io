@@ -11,7 +11,7 @@ const app = express();
 dotenv.config({path:"./config.env"})
 const port = process.env.port || 3000;
 
-mongoose.connect('mongodb+srv://WhiN:MongoDBaccount2020@whin.m1ctd.mongodb.net/WhiN?retryWrites=true&w=majority',{useNewUrlParser: true , useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://Database4WhiN:Database4WhiN@whin.wbc8o.mongodb.net/WhiN?retryWrites=true&w=majority',{useNewUrlParser: true , useUnifiedTopology: true});
 
 connection.once('open', () => console.log("connected to the mongodb"));
 

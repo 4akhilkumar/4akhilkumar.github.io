@@ -1,8 +1,5 @@
 .jumbo {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin: 10px 10px;
     border-radius: 20px;
     padding: 70px 30px;
     background: rgba(57, 208, 228, 0.5);
@@ -12,4 +9,15 @@
 .button {
   margin-right: 8px;
   box-shadow: 5px 5px #888888;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+}
+
+.button:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0,0,0,0.11), 0 24px 46px var(--box-shadow-color);
+}
+
+.button:hover .overlay {
+  transform: scale(4) translateZ(0);
 }

@@ -14,11 +14,7 @@ let bookhospitalitySchema = new Schema({
         type:String,
         required:true
     },
-    nop :{
-        type:Number,
-        required:true
-    },
-    tor :{
+    money :{
         type:String,
         required:true
     },

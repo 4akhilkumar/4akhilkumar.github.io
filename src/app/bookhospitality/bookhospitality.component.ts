@@ -13,12 +13,12 @@ import { BookhospitalityService } from '../bookhospitality.service';
 })
 export class BookhospitalityComponent implements OnInit {
   hide=true;
-  registerUserData = {userid:null, place:"", name:"", nop:"", phone:"", doa:"", dod:"", email: "", tor: "", lplace: ""}
+  registerUserData = {userid:null, place:"", name:"", money:"", phone:"", doa:"", dod:"", email: "", tor: "", lplace: ""}
 
   registerData={
     place:new FormControl('',[Validators.required]),
     name:new FormControl('',[Validators.required]),
-    nop:new FormControl('',[Validators.required]),
+    money:new FormControl('',[Validators.required]),
     phone:new FormControl('',[Validators.required]),
     doa:new FormControl('',[Validators.required]),
     dod:new FormControl('',[Validators.required]),
@@ -41,16 +41,6 @@ export class BookhospitalityComponent implements OnInit {
     }
     else if(this.registerData.name.hasError('minlength')){
       return 'Name must be a minimum length of 2';
-    }
-  }
-  getMessageNop(){
-    if (this.registerData.nop.hasError('required')) {
-      return 'Member(s) is required';
-    }
-  }
-  getMessageTor(){
-    if (this.registerData.tor.hasError('required')) {
-      return 'Type of Room is required';
     }
   }
   getMessagePhone(){
@@ -91,8 +81,7 @@ export class BookhospitalityComponent implements OnInit {
         this.registerUserData.userid=data;
         this.registerUserData.place=this.registerData.place.value;
         this.registerUserData.name=this.registerData.name.value;
-        this.registerUserData.nop=this.registerData.nop.value;
-        this.registerUserData.tor=this.registerData.tor.value;
+        this.registerUserData.money=this.registerData.money.value;
         this.registerUserData.lplace=this.registerData.lplace.value;
         this.registerUserData.phone=this.registerData.phone.value;
         this.registerUserData.doa=this.registerData.doa.value;
@@ -101,7 +90,7 @@ export class BookhospitalityComponent implements OnInit {
         this._bookhospitality.bookhospitality(this.registerUserData)
         .subscribe(
           res => {
-            this.snackbar.open('Your Hospitality Booked SUCCESSFULL', 'OK', {
+            this.snackbar.open('Your Hospitality Booked Successfully.', 'Okay!', {
               duration: 10000,
             });
             this._router.navigate(['/dashboard'])
@@ -109,7 +98,7 @@ export class BookhospitalityComponent implements OnInit {
           err => {
             if( err instanceof HttpErrorResponse ) {
               if (err.status === 409) {
-                this.snackbar.open('Oops! Some thing went wrong.', 'OK', {
+                this.snackbar.open('Oops! Some Thing Went Wrong.', 'Okay!', {
                   duration: 10000,
                 });
               }
