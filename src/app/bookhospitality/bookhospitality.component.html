@@ -19,7 +19,7 @@
                 <mat-form-field class="example">
                   <mat-label>Name</mat-label>
                   <input matInput type="text"required minlength="3" onkeypress="return (event.charCode > 64 && 
-                  event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" [formControl]="registerData.name" placeholder="Name" required>
+                  event.charCode < 91) || (event.charCode == 32) || (event.charCode > 96 && event.charCode < 123)" [formControl]="registerData.name" placeholder="Name" required>
                       <mat-error *ngIf="registerData.name.invalid">{{getMessageName()}}</mat-error>
                 </mat-form-field>
             </div>
