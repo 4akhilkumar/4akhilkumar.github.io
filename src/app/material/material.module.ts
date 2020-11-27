@@ -18,10 +18,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTableModule} from '@angular/material/table';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatDialogModule} from '@angular/material/dialog';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { MatTableExporterModule } from 'mat-table-exporter';
 
-const Materialcomponents=[MatTableExporterModule,MatProgressSpinnerModule,MatDialogModule,MatCarouselModule,MatSliderModule,MatTableModule,MatGridListModule,MatListModule,MatPaginatorModule,MatSnackBarModule,MatStepperModule,MatCheckboxModule,MatToolbarModule, MatCardModule,MatButtonModule,MatInputModule,MatFormFieldModule,MatIconModule,MatSelectModule,MatTabsModule,MatSidenavModule];
+const Materialcomponents=[MatDialogModule,MatCarouselModule,MatSliderModule,MatTableModule,MatGridListModule,MatListModule,MatPaginatorModule,MatSnackBarModule,MatStepperModule,MatCheckboxModule,MatToolbarModule, MatCardModule,MatButtonModule,MatInputModule,MatFormFieldModule,MatIconModule,MatSelectModule,MatTabsModule,MatSidenavModule];
 @NgModule({
   
   imports: [

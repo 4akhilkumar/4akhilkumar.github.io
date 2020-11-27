@@ -13,14 +13,12 @@ export class TraveldashboardComponent implements OnInit {
   constructor(
     public _authService: AuthService,
     private booktravel: BooktravelService,
-
   ) { }
 
   ngOnInit(): void {
     if(this._authService.getToken()){
       this._authService.getUserId().subscribe((data)=>{
         this.booktravel.getbooking(data)
-
           .subscribe(
             (res:any) => {
               this.booktraveldata=res

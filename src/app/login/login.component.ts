@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
   }
 
   hide = true;
-  
   constructor(private _auth: AuthService,
               public dialog: MatDialog,
               private _router: Router,private snackbar:MatSnackBar) { }
@@ -57,17 +56,17 @@ export class LoginComponent implements OnInit {
     this._auth.loginUser(this.loginData)
     .subscribe(
       res => {
-        this.snackbar.open('LOGIN SUCCESSFULL', 'OK', {
-          duration: 3000,
+        this.snackbar.open('Login Successfull', 'Okay!', {
+          duration: 4000,
         });
         localStorage.setItem('token', res.token)
-        this._router.navigate(['/home'])
+        this._router.navigate(['/welcome'])
       },
       err => {
         if( err instanceof HttpErrorResponse ) {
           if (err.status === 401) {
-            this.snackbar.open('INVALID EMAIL OR PASSWORD', 'OK', {
-              duration: 3000,
+            this.snackbar.open('Invalid E - Mail or Password!', 'Okay!', {
+              duration: 4000,
             });
             this.loginUserData.email.reset();
             this.loginUserData.password.reset();

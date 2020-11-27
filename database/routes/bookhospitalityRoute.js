@@ -6,7 +6,6 @@ const BookhospitalityRoute=express.Router();
 
 
 BookhospitalityRoute.route('/bookhospitality').post((req, res) => {
-    console.log(req.body) 
       Bookhospitality.create(req.body)
       .then((resp)=>{
           res.statusCode=200

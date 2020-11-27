@@ -59,7 +59,7 @@
             <mat-icon><span class="material-icons">phone</span></mat-icon>
             <mat-form-field class="example">
               <mat-label>Phone Number</mat-label>
-              <input matInput type="number"  pattern=".{10}" [formControl]="registerData.phone" placeholder="Phone Number" required>
+              <input matInput type="number" pattern=".{10}" [formControl]="registerData.phone" placeholder="Phone Number" required>
               <mat-error *ngIf="registerData.phone.invalid">{{getMessagePhone()}}</mat-error>
             </mat-form-field>
           </div>

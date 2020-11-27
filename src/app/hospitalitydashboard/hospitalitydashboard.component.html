@@ -1,10 +1,9 @@
-<div *ngIf="bookhospitalitydata" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center" style="padding: 20px;" fxLayoutGap="10px">
+<div *ngIf="bookhospitalitydata" fxLayout.md="row" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center" style="padding: 20px;" fxLayoutGap="10px">
     <mat-card *ngFor="let btd of bookhospitalitydata" class="example-card">
         <mat-card-header class="carddata" > </mat-card-header>
             <mat-card-content style="font-weight: bold;">
             <p>The Hospitality Place: {{btd.place}}</p>
             <li>Name of the Guest: {{btd.name}}</li>
-            <li>No. of Persons are with Guest: {{btd.nop}}</li>
             <li>Date of Arrival: {{btd.doa}}</li>
             <li>Date of Departure: {{btd.dod}}</li>
             <li>Amount Paid is {{btd.money | currency}}</li><br>

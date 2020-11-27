@@ -78,7 +78,7 @@ export class DonationformComponent implements OnInit {
       .subscribe(
         res => {
           this.snackbar.open('Your Donation is Successfull, Thank You!', 'Okay!', {
-            duration: 3000,
+            duration: 4000,
           });
         },
        )

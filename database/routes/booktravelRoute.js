@@ -6,7 +6,6 @@ const BooktravelRoute=express.Router();
 
 
 BooktravelRoute.route('/booktravel').post((req, res) => {
-    console.log(req.body) 
       Booktravel.create(req.body)
       .then((resp)=>{
           res.statusCode=200

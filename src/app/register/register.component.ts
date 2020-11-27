@@ -66,8 +66,8 @@ export class RegisterComponent implements OnInit {
     this._auth.registerUser(this.registerUserData)
     .subscribe(
       res => {
-        this.snackbar.open('USER REGISTERED SUCCESSFULL', 'OK', {
-          duration: 3000,
+        this.snackbar.open('User Registered Successfully', 'Okay!', {
+          duration: 4000,
         });
         localStorage.setItem('token', res.token)
         this._router.navigate(['/welcome'])
@@ -75,8 +75,8 @@ export class RegisterComponent implements OnInit {
       err => {
         if( err instanceof HttpErrorResponse ) {
           if (err.status === 409) {
-            this.snackbar.open('EMAIL ALREADY REGISTERED', 'OK', {
-              duration: 3000,
+            this.snackbar.open('E - Mail Already Registered', 'Okay!', {
+              duration: 4000,
             });
             this.registerData.email.reset();
             this.registerData.name.reset();

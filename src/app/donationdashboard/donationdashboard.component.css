@@ -3,14 +3,14 @@
     display: inline-block;
     background: linear-gradient(to right, #66ff66 0%, #00ffff 100%);
     box-shadow: 0px 0px 5px 5px rgba(95, 221, 238, 0.4);
-    color: azure;
+    color: rgb(0, 0, 0);
     border-radius: 20px;
     overflow: hidden;
     transition: all 0.3s ease-out;
 }
 
 .example-card:hover {
-    transform: translateY(-5px) scale(1.005) translateZ(0);
+    transform: translateY(-5px) scale(1.05) translateZ(0);
     box-shadow: 0 24px 36px rgba(0,0,0,0.11), 0 24px 46px var(--box-shadow-color);
   }
   

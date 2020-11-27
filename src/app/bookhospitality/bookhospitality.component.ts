@@ -13,7 +13,7 @@ import { BookhospitalityService } from '../bookhospitality.service';
 })
 export class BookhospitalityComponent implements OnInit {
   hide=true;
-  registerUserData = {userid:null, place:"", name:"", money:"", phone:"", doa:"", dod:"", email: "", tor: "", lplace: ""}
+  registerUserData = {userid:null, place:"", name:"", money:"", phone:"", doa:"", dod:"", email: "", lplace: ""}
 
   registerData={
     place:new FormControl('',[Validators.required]),
@@ -23,7 +23,6 @@ export class BookhospitalityComponent implements OnInit {
     doa:new FormControl('',[Validators.required]),
     dod:new FormControl('',[Validators.required]),
     email:new FormControl('',[Validators.required,Validators.email]),
-    tor:new FormControl('',[Validators.required]),
     lplace:new FormControl('',[Validators.required]),
   }
   
@@ -40,7 +39,7 @@ export class BookhospitalityComponent implements OnInit {
       return 'Name is required';
     }
     else if(this.registerData.name.hasError('minlength')){
-      return 'Name must be a minimum length of 2';
+      return 'Name must be a minimum length of 3';
     }
   }
   getMessagePhone(){
@@ -91,19 +90,10 @@ export class BookhospitalityComponent implements OnInit {
         .subscribe(
           res => {
             this.snackbar.open('Your Hospitality Booked Successfully.', 'Okay!', {
-              duration: 10000,
+              duration: 4000,
             });
             this._router.navigate(['/dashboard'])
           },
-          err => {
-            if( err instanceof HttpErrorResponse ) {
-              if (err.status === 409) {
-                this.snackbar.open('Oops! Some Thing Went Wrong.', 'Okay!', {
-                  duration: 10000,
-                });
-              }
-            }
-          }
          )
       })
     }
