@@ -83,7 +83,7 @@
             </mat-icon>
             <mat-form-field class="example">
               <mat-label>Living Place</mat-label>
-              <input matInput type="text" [formControl]="registerData.lplace" placeholder="Living Place" required>
+              <input matInput type="text" required minlength="2" [formControl]="registerData.lplace" placeholder="Living Place" required>
               <mat-error *ngIf="registerData.lplace.invalid">{{getMessageLplace()}}</mat-error>
             </mat-form-field>
           </div>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -78,19 +77,10 @@ export class DonationformComponent implements OnInit {
       this._donate.donate(this.registerUserData)
       .subscribe(
         res => {
-          this.snackbar.open('Your Donation is SUCCESSFULL', 'Okay!', {
+          this.snackbar.open('Your Donation is Successfull, Thank You!', 'Okay!', {
             duration: 3000,
           });
         },
-        err => {
-          if( err instanceof HttpErrorResponse ) {
-            if (err.status === 409) {
-              this.snackbar.open('Oops! Something Wrong with your Transaction', 'Try Again Please!', {
-                duration: 3000,
-              });
-            }
-          }
-        }
        )
     })
   }

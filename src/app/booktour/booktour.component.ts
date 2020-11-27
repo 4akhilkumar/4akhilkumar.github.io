@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -94,15 +93,6 @@ export class BooktourComponent implements OnInit {
             });
             this._router.navigate(['/dashboard'])
           },
-          err => {
-            if( err instanceof HttpErrorResponse ) {
-              if (err.status === 409) {
-                this.snackbar.open('Oops! Some Thing Went Wrong.', 'Okay!', {
-                  duration: 4000,
-                });
-              }
-            }
-          }
          )
       })
     }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -42,6 +41,9 @@ export class ContactusComponent implements OnInit {
     if (this.registerData.contactus.hasError('required')) {
       return 'Feedback with Content is required';
     }
+    else if(this.registerData.name.hasError('minlength')){
+      return 'Feedback with content of 25 Characters is required. So, we can understand your Feedback.';
+    }
   }
 
   getMessagePhone(){
@@ -66,7 +68,7 @@ export class ContactusComponent implements OnInit {
       this._contactus.contactus(this.registerUserData)
       .subscribe(
         res => {
-          this.snackbar.open('Your Feedback is Submitted SUCCESSFULLY, Thank You!', 'Okay!', {
+          this.snackbar.open('Your Feedback is Submitted Successfully, Thank You!', 'Okay!', {
             duration: 3000,
           });
           this.registerData.name.reset();
@@ -78,15 +80,6 @@ export class ContactusComponent implements OnInit {
           this.registerUserData.phone="";
           this.registerUserData.contactus="";
         },
-        err => {
-          if( err instanceof HttpErrorResponse ) {
-            if (err.status === 409) {
-              this.snackbar.open('Oops! Something went wrong,', 'Try Again Please!', {
-                duration: 3000,
-              });
-            }
-          }
-        }
       )      
     }
   } 

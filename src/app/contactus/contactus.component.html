@@ -31,7 +31,7 @@
       </h2>
       <mat-divider></mat-divider>
       <br>
-      <h2 style="font-size: large; color: red; font-weight: bold;">
+      <h2 style="font-size: large; color: red; font-weight: bold; text-shadow: 0px 0px 5px rgb(0, 0, 0);">
         <span class="material-icons">warning</span>
         NOTE: We don't approach you with any unofficial way. We call or email through the above details ONLY. If you recieve any messages from
         any related share your OTP i.e., any confidential Information then immediately raise the complaint regarding this to Cyber-Crime Department.
@@ -50,7 +50,7 @@
             <mat-icon><i class="fa fa-user-circle" aria-hidden="true"></i></mat-icon>
             <mat-form-field class="example">
               <mat-label>Name</mat-label>
-              <input matInput type="text"required minlength="3" onkeypress="return (event.charCode > 64 && 
+              <input matInput type="text" required minlength="3" onkeypress="return (event.charCode > 64 && 
                     event.charCode < 91) || (event.charCode == 32) || (event.charCode > 96 && event.charCode < 123)" [formControl]="registerData.name" placeholder="Name" required>
               <mat-error *ngIf="registerData.name.invalid">{{getMessageName()}}</mat-error>
             </mat-form-field>
@@ -75,8 +75,9 @@
               <mat-icon><span class="material-icons">feedback</span></mat-icon>
               <form class="example-form">
                 <mat-form-field class="example-full-width">
-                    <mat-label>Leave a comment</mat-label>
-                    <textarea matInput placeholder="Ex. It would be better..." [formControl]="registerData.contactus"></textarea>
+                    <mat-label>Leave a Feedback</mat-label>
+                    <textarea matInput placeholder="Ex. It would be better..." required minlength="25" [formControl]="registerData.contactus"></textarea>
+                    <mat-error *ngIf="registerData.contactus.invalid">{{getMessageForm()}}</mat-error>
                   </mat-form-field>
               </form>
            </div>
