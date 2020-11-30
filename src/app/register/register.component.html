@@ -38,7 +38,7 @@
             </mat-icon>
             <mat-form-field class="example">
               <mat-label>Email</mat-label>
-              <input matInput type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [formControl]="registerData.email" placeholder="Email" required>
+              <input matInput type="email" pattern="[a-z0-9._%+-]+@[a-z]+\.[a-z]{2,}$" [formControl]="registerData.email" placeholder="Email" required>
               <mat-error *ngIf="registerData.email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
           </div>
