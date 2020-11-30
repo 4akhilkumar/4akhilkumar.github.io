@@ -65,12 +65,6 @@
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-    <mat-paginator [length]="100"
-              [pageSize]="10"
-              [pageSizeOptions]="[5, 10, 25, 100]">
-    </mat-paginator>
-
   
     <tr class="mat-row" *matNoDataRow>
       <td class="mat-cell" colspan="6">No data matching the search "{{input.value}}"</td>
