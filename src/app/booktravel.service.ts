@@ -12,6 +12,7 @@ export class BooktravelService {
       console.log(linkbtravel)
       return this.http.post("http://localhost:3000/booktravel/booktravel",linkbtravel)
     }
+
     getbooking(id){
       return this.http.get(`http://localhost:3000/booktravel/getbooktravels/${id}`)
     }

@@ -63,6 +63,7 @@ import { HospitalitydashboardComponent } from './hospitalitydashboard/hospitalit
 import { DonationdashboardComponent } from './donationdashboard/donationdashboard.component';
 import { TermsandconditionsComponent } from './termsandconditions/termsandconditions.component';
 import { OberoiComponent } from './hospitalityplaces/oberoi/oberoi.component';
+import { AllinoneComponent } from './allinone/allinone.component';
 
 @NgModule({
   declarations: [
@@ -121,6 +122,7 @@ import { OberoiComponent } from './hospitalityplaces/oberoi/oberoi.component';
     DonationdashboardComponent,
     TermsandconditionsComponent,
     OberoiComponent,
+    AllinoneComponent,
   ],
   imports: [
     BrowserModule,

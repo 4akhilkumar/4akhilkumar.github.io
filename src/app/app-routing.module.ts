@@ -15,6 +15,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { DonateComponent } from './donate/donate.component';
 import { DonationformComponent } from './donationform/donationform.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AllinoneComponent } from './allinone/allinone.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path:'contactus',component:ContactusComponent},
   {path:'donate',component:DonateComponent},
   {path:'donationform',component:DonationformComponent,canActivate:[AuthGuard]},
+  {path:'allinone',component:AllinoneComponent},
   {path:'',component:WelcomeComponent}
 ];
 

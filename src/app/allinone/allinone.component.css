@@ -1,0 +1,35 @@
+table {
+    width: 100%;
+    margin: 20px 20px;
+}
+  
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.search {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.jumbo {
+  margin: 20px 20px;
+  border-radius: 20px;
+  padding: 10px 10px;
+  background:#FAC4AD;
+  color: #000000;;
+  min-height: 100px;
+  box-shadow: 5px 5px #888888;
+  overflow: hidden;
+  transition: all 0.3s ease-out; 
+}
+
+.jumbo:hover {
+transform: translateY(-5px) scale(1.005) translateZ(0);
+box-shadow: 0 24px 36px rgba(0,0,0,0.11), 0 24px 46px var(--box-shadow-color);
+}
+
+.jumbo:hover .overlay {
+transform: scale(4) translateZ(0);
+}
