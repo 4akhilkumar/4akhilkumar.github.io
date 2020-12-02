@@ -1,0 +1,92 @@
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" fxLayout.sm="column" fxLayout.xs="column" style="background-image: url(../assets/images/profile.webp); background-size: 100% 100%">
+    <div fxLayout="row" fxLayoutAlign="center" style="padding: 40px;" class="login-card">
+        <mat-card class="example-card">
+            <mat-toolbar class="title">
+                <i class="fas fa-edit"></i>
+                Time To Edit My Profile
+            </mat-toolbar>
+            <div fxLayout="column" fxLayoutAlign="center center"> 
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+                    <mat-icon><i class="fa fa-user-circle" aria-hidden="true"></i></mat-icon>
+                    <mat-form-field class="example">
+                        <mat-label>Name</mat-label>
+                        <input matInput type="text" required minlength="3" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode == 32) || (event.charCode > 96 && event.charCode < 123)" [formControl]="registerUserData.name" placeholder="Name" required>
+                        <mat-error *ngIf="registerUserData.name.invalid">{{getErrorName()}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap.gt-sm="20px">
+                    <div>
+                        <mat-icon><span class="material-icons">date_range</span></mat-icon>
+                        <mat-form-field class="example">
+                            <mat-label>Date of Birth</mat-label>
+                              <input matInput type="date" [formControl]="registerUserData.dob" placeholder="Date of Birth" required>
+                              <mat-error *ngIf="registerUserData.dob.invalid">{{getErrorDob()}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-icon><i class="fas fa-venus-mars"></i></mat-icon>
+                        <mat-form-field class="example">
+                        <mat-label>Select Your Gender</mat-label>
+                        <mat-select [formControl]="registerUserData.gender">
+                            <mat-option value="Male">Male</mat-option>
+                            <mat-option value="Female">Female</mat-option>
+                            <mat-option value="Transgender">Transgender</mat-option>
+                            <mat-option value="Not Prefer to Say">Not Prefer to Say</mat-option>
+                          </mat-select>
+                          <mat-error *ngIf="registerUserData.gender.invalid">{{getErrorGender()}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap.gt-sm="20px">
+                    <div>
+                        <mat-icon><i class="fa fa-phone" aria-hidden="true"></i></mat-icon>
+                        <mat-form-field class="example">
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput type="number" pattern=".{10}" [formControl]="registerUserData.phone" placeholder="Phone" required>
+                            <mat-error *ngIf="registerUserData.phone.invalid">{{getErrorPhone()}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-icon><i class="fa fa-envelope" aria-hidden="true"></i></mat-icon>
+                        <mat-form-field class="example">
+                          <mat-label>E - Mail</mat-label>
+                              <input matInput type="email" pattern="[a-z0-9._%+-]+@[a-z]+\.[a-z]{2,}$" [formControl]="registerUserData.email" placeholder="E - Mail" required>
+                              <mat-error *ngIf="registerUserData.email.invalid">{{getErrorEMail()}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+                    <mat-icon><i class="fa fa-address-card" aria-hidden="true"></i></mat-icon>
+                    <mat-form-field class="example">
+                        <mat-label>Address</mat-label>
+                        <input matInput type="text" required minlength="2" [formControl]="registerUserData.addr" placeholder="Address" required>
+                        <mat-error *ngIf="registerUserData.addr.invalid">{{getErrorAddr()}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap.gt-sm="20px">
+                    <div>
+                        <span class="material-icons"> location_city </span>
+                        <mat-form-field class="example">
+                        <mat-label>City</mat-label>
+                        <input matInput type="text" required minlength="2" [formControl]="registerUserData.city" placeholder="City" required>
+                        <mat-error *ngIf="registerUserData.addr.invalid">{{getErrorCity()}}</mat-error>
+                    </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-icon><i class="fa fa-map-pin"></i></mat-icon>
+                        <mat-form-field class="example">
+                            <mat-label>Pincode</mat-label>
+                        <input matInput type="number" pattern=".{6}" [formControl]="registerUserData.pincode" placeholder="Pincode" required>
+                        <mat-error *ngIf="registerUserData.pincode.invalid">{{getErrorPin()}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center">
+                <button mat-raised-button (click)="onSubmit()" [disabled]="registerUserData.name.invalid || registerUserData.addr.invalid || registerUserData.dob.invalid || registerUserData.city.invalid || registerUserData.pincode.invalid || registerUserData.phone.invalid || registerUserData.email.invalid || registerUserData.gender.invalid" class="example-button">Submit</button>
+                <button mat-raised-button routerLink="/profile" class="cancel-button">Cancel</button>
+                </div>
+        </mat-card>
+    </div>
+</div>
