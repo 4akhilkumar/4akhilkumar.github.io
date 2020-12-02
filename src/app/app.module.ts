@@ -64,6 +64,8 @@ import { DonationdashboardComponent } from './donationdashboard/donationdashboar
 import { TermsandconditionsComponent } from './termsandconditions/termsandconditions.component';
 import { OberoiComponent } from './hospitalityplaces/oberoi/oberoi.component';
 import { AllinoneComponent } from './allinone/allinone.component';
+import { ProfileComponent } from './profile/profile.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 
 @NgModule({
   declarations: [
@@ -123,6 +125,8 @@ import { AllinoneComponent } from './allinone/allinone.component';
     TermsandconditionsComponent,
     OberoiComponent,
     AllinoneComponent,
+    ProfileComponent,
+    EditprofileComponent,
   ],
   imports: [
     BrowserModule,
