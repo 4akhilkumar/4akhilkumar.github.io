@@ -19,7 +19,7 @@
 
 .active1 {
     color: white;
-    background-color:rgb(102, 118, 209);
+    background: linear-gradient(to top left, #ffff66 0%, #ff0066 100%);
 }
 
 .active2 {
