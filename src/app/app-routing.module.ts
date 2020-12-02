@@ -16,6 +16,8 @@ import { DonateComponent } from './donate/donate.component';
 import { DonationformComponent } from './donationform/donationform.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AllinoneComponent } from './allinone/allinone.component';
+import { ProfileComponent } from './profile/profile.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -35,6 +37,8 @@ const routes: Routes = [
   {path:'donate',component:DonateComponent},
   {path:'donationform',component:DonationformComponent,canActivate:[AuthGuard]},
   {path:'allinone',component:AllinoneComponent},
+  {path:'profile',component:ProfileComponent,canActivate:[AuthGuard]},
+  {path:'editprofile',component:EditprofileComponent,canActivate:[AuthGuard]},
   {path:'',component:WelcomeComponent}
 ];
 
