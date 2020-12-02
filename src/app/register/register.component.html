@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutGap="10px" fxLayout.sm="column" fxLayout.xs="column" style="background-image: url(../assets/images/register.jpg); background-repeat: no-repeat; background-size: 100% 105%;">
+<div fxLayout="row" fxLayoutGap="10px" fxLayout.sm="column" fxLayout.xs="column" style="background-image: url(../assets/images/register.webp); background-repeat: no-repeat; background-size: 100% 105%;">
   <div class="jumbo">
     <h1 style="font-weight: bold;font-size: x-large; padding-top: 50px;">
       <span class="material-icons">connect_without_contact</span>
@@ -48,7 +48,7 @@
             </mat-icon>
             <mat-form-field class="example">
               <mat-label>Password</mat-label>
-              <input matInput [type]="hide ? 'password' : 'text'" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [formControl]="registerData.password" placeholder="Password" required> 
+              <input matInput [type]="hide ? 'password' : 'text'" pattern="(?=.*\d)(?=.*[!()@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}" [formControl]="registerData.password" placeholder="Password" required> 
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>
