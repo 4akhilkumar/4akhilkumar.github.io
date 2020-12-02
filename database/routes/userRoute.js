@@ -60,6 +60,38 @@ UserRoute.route('/login').post((req, res) => {
     })
 })
 
+UserRoute.route('/profile/:id').get((req,res,next)=>{
+    user.findOne({_id:req.params.id})
+    .then((resp) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(resp);
+    }, (err) => next(err))
+    .catch((err) => next(err));
+})
+
+UserRoute.route('/edit-profile/:id').patch((req,res,next)=>{
+    user.findById(req.params.id,(err,data)=>{
+        if (err) next(err)
+        else {
+        data.name=req.body.name;
+        data.addr=req.body.addr;
+        data.city=req.body.city;
+        data.dob=req.body.dob;
+        data.gender=req.body.gender;
+        data.pincode=req.body.pincode;
+        data.phone=req.body.phone;
+        data.email=req.body.email;
+        data
+          .save()
+          .then((data) => {
+            res.json("Edit Done");
+          })
+          .catch((err) => res.status(409).send("failed"));
+        }
+  });
+})
+
 UserRoute.route('/userid').get(verifyToken,(req,res,next)=>{
     return res.status(200).json(decodedToken.id)
 })
@@ -70,6 +102,16 @@ UserRoute.route('/username/:id').get((req,res,next)=>{
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.json(resp.username);
+    }, (err) => next(err))
+    .catch((err) => next(err));
+})
+
+UserRoute.route('/delete/:id').delete((req,res,next)=>{
+    user.deleteOne({_id:req.params.id})
+    .then((resp) => {
+        res.setHeader('Content-Type', 'application/json');
+        // res.status(200).send("Removed Successfully")
+        res.json(resp);
     }, (err) => next(err))
     .catch((err) => next(err));
 })
