@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/4b96c25cd9.js" crossorigin="anonymous"></script>
@@ -16,64 +17,127 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <style>
+    #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 15px;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      background-color: white;
+      color: black;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 0 8px  #000000;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+  <style>
+    @keyframes slideInRight {
+      from {
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+      }
+    
+      to {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    
+    button.chatLauncher {
+      animation-duration: 0.5s;
+      transition-duration: 0.5s;
+      position: fixed;
+      bottom: 8px;
+      right: 8px;
+      z-index: 9999;
+      border: 4px solid #000000;
+      padding: 1em;
+      border-radius: 8px;
+      margin: 0;
+      text-decoration: none;
+      background-color: #ffffff;
+      color: #454545;
+      font-family: sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: left;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      width: 264px;
+      opacity: 0;
+    }
+
+    button.chatLauncher.open {
+      animation-name: slideInRight;
+      opacity: 1;
+    }
+
+    button.chatLauncher:hover,
+    button.chatLauncher:focus {
+      background-color: rgb(254, 225, 225);
+      border: 4px solid #F1516C;
+    }
+    
+    button.chatLauncher:focus {
+      outline: 1px solid #F1516C;
+      outline-offset: -4px;
+    }
+  </style>
 </head>
 <body class="mat-typography">
   <app-root></app-root>
-  <script>
-    window.watsonAssistantChatOptions = {
-        integrationID: "4767c762-11f1-4214-bc94-cb9f665ddfe6",
-        region: "eu-gb",
-        serviceInstanceID: "59a18c31-3a0b-461f-a797-1d6ed041a8ee",
-        onLoad: function(instance) { instance.render(); }
-      };
-    setTimeout(function(){
-      const t=document.createElement('script');
-      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
-      document.head.appendChild(t);
-    });
-  </script>
-
-  <button onclick="topFunction()" id="myBtn" title="Go to top"><span class="material-icons">arrow_upward</span></button>
-  <script>
-    var mybutton = document.getElementById("myBtn");
-    window.onscroll = function() {scrollFunction()};
-    
-    function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    }
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-    </script>
-    <style>
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 20px;
-      }
-      #myBtn {
-        display: none;
-        position: fixed;
-        bottom: 20px;
-        left: 30px;
-        z-index: 99;
-        font-size: 18px;
-        border: none;
-        outline: none;
-        background-color: rgb(236, 87, 87);
-        color: white;
-        cursor: pointer;
-        padding: 15px;
-        border-radius: 4px;
-      }
-      
-      #myBtn:hover {
-        background-color: #555;
-      }
-      </style>
+  <button type="button" class="chatLauncher" style="display:none;">
+    <div>
+      <strong>Have questions?</strong> Talk with WhiN VR our Virtual Assistant.
+    </div>
+  </button>
 </body>
+<script defer src="https://kit.fontawesome.com/4b96c25cd9.js" crossorigin="anonymous"></script>
+<script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<button onclick="topFunction()" id="myBtn" title="Scroll to Top"><span class="material-icons">arrow_upward</span></button>
+<script>
+  var mybutton = document.getElementById("myBtn");
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
+<script>
+  window.watsonAssistantChatOptions = {
+      integrationID: "4767c762-11f1-4214-bc94-cb9f665ddfe6",
+      region: "eu-gb",
+      serviceInstanceID: "59a18c31-3a0b-461f-a797-1d6ed041a8ee",
+
+    showLauncher: false,
+    onLoad: function(instance) {
+      const button = document.querySelector('.chatLauncher');
+      button.addEventListener('click', function clickListener() {
+        instance.openWindow();
+      });
+      instance.render().then(function() {
+        button.style.display = 'block';
+        button.classList.add('open');
+      });
+    }
+  };
+  setTimeout(function(){const t=document.createElement('script');t.src='https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js';document.head.appendChild(t);});
+</script>
 </html>
