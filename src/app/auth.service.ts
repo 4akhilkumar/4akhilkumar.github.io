@@ -43,4 +43,16 @@ export class AuthService {
     getUserName(id){
       return this.http.get(`http://localhost:3000/user/username/${id}`)
     }
+
+    getProfile(id){
+      return this.http.get<any>(`http://localhost:3000/user/profile/${id}`)
+    }
+
+    editProfile(id,user){
+      return this.http.patch<any>(`http://localhost:3000/user/edit-profile/${id}`,user);
+    }
+
+    deleteaccount(id){
+      return this.http.delete<any>(`http://localhost:3000/user/delete/${id}`)
+    }
 }
