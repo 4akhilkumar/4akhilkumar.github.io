@@ -13,6 +13,24 @@ let userSchema = new Schema({
     password :{
         type:String,
         required:true
+    },
+    gender: {
+        type:String,
+    },
+    addr: {
+        type:String,
+    },
+    dob: {
+        type:String,
+    },
+    city :{
+        type:String,
+    },
+    phone :{
+        type:String,
+    },
+    pincode :{
+        type:String,
     }
 })
 
