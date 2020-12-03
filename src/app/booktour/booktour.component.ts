@@ -71,6 +71,11 @@ export class BooktourComponent implements OnInit {
   ngOnInit() {
     let place = this.route.snapshot.params['name'];
     this.registerData.place.setValue(place)
+    this._authService.getUserId().subscribe((res)=>{
+      this._authService.getName(res).subscribe((name)=>{
+        this.registerData.name.setValue(name)
+      })
+    })
     }
 
   registerUser() {
