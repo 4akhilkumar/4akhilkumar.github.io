@@ -19,8 +19,8 @@
               <mat-form-field class="example">
                 <mat-label>Name</mat-label>
                 <input matInput type="text" required minlength="3" onkeypress="return (event.charCode > 64 && 
-                event.charCode < 91) || (event.charCode == 32) || (event.charCode > 96 && event.charCode < 123)" [formControl]="registerData.name" placeholder="Name" required>
-                    <mat-error *ngIf="registerData.name.invalid">{{getMessageName()}}</mat-error>
+                event.charCode < 91) || (event.charCode == 32) || (event.charCode > 96 && event.charCode < 123)" [formControl]="registerData.name" placeholder="Name" readonly>
+                    <!-- <mat-error *ngIf="registerData.name.invalid">{{getMessageName()}}</mat-error> -->
               </mat-form-field>
           </div>
           <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
@@ -67,7 +67,7 @@
             <p>Please scan the QR Code to Pay the Money.</p>
           </div>
           <div fxLayout="row" fxLayoutGap="5px" fxLayout.sm="column" fxLayout.xs="column">
-            <img src="../assets/images/donateQRCode.png" style="height: 200px">
+            <img src="../assets/images/donateQRCode.webp" style="height: 200px">
           </div>
           <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
             <mat-icon>
@@ -76,19 +76,19 @@
             <mat-form-field class="example">
             <mat-label>Select the Price for Your Travel</mat-label>
             <mat-select [formControl]="registerData.money">
-              <mat-option value="150">$25 - Ordinary Travel</mat-option>
-              <mat-option value="200">$50 - Deluxe Travel</mat-option>
-              <mat-option value="250">$75 - Luxury Travel</mat-option>
-              <mat-option value="300">$100 - Ultra Ordinary Travel</mat-option>
-              <mat-option value="350">$125 - Ultra Deluxe Travel</mat-option>
-              <mat-option value="400">$150 - Ultra Luxury Travel</mat-option>
+              <mat-option value="25">$25 - Ordinary Travel</mat-option>
+              <mat-option value="50">$50 - Deluxe Travel</mat-option>
+              <mat-option value="75">$75 - Luxury Travel</mat-option>
+              <mat-option value="100">$100 - Ultra Ordinary Travel</mat-option>
+              <mat-option value="125">$125 - Ultra Deluxe Travel</mat-option>
+              <mat-option value="150">$150 - Ultra Luxury Travel</mat-option>
               <mat-error *ngIf="registerData.money.invalid"></mat-error>
             </mat-select>
             </mat-form-field>
           </div>
         </div>
         <div fxLayout="row" fxLayoutAlign="center">
-          <button mat-raised-button color="primary" (click)="registerUser()" [disabled]="registerData.phone.invalid || registerData.email.invalid || registerData.name.invalid || registerData.lplace.invalid || registerData.doa.invalid || registerData.money.invalid" class="example-button">Book My Trip</button>
+          <button mat-raised-button color="primary" (click)="registerUser()" [disabled]="registerData.phone.invalid || registerData.email.invalid || registerData.lplace.invalid || registerData.doa.invalid || registerData.money.invalid" class="example-button">Book My Trip</button>
             </div>
       </mat-card>
     </div>
