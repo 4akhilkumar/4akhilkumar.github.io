@@ -106,6 +106,16 @@ UserRoute.route('/username/:id').get((req,res,next)=>{
     .catch((err) => next(err));
 })
 
+UserRoute.route('/name/:id').get((req,res,next)=>{
+    user.findOne({_id:req.params.id})
+    .then((resp) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(resp.name);
+    }, (err) => next(err))
+    .catch((err) => next(err));
+})
+
 UserRoute.route('/delete/:id').delete((req,res,next)=>{
     user.deleteOne({_id:req.params.id})
     .then((resp) => {
