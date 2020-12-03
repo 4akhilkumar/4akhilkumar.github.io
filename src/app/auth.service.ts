@@ -44,6 +44,10 @@ export class AuthService {
       return this.http.get(`http://localhost:3000/user/username/${id}`)
     }
 
+    getName(id){
+      return this.http.get(`http://localhost:3000/user/name/${id}`)
+    }
+
     getProfile(id){
       return this.http.get<any>(`http://localhost:3000/user/profile/${id}`)
     }
