@@ -19,7 +19,10 @@ const donateRoute=require('./routes/donateRoute');
 const contactusRoute=require('./routes/contactusRoute');
 const userRoute=require('./routes/userRoute');
 
-app.use(cors());
+app.use(cors({
+   origin: ['http://localhost:4200', 'http://127.0.0.1:4200', 'https://whintth.netlify.app'],
+   credentials: true
+}));
 app.use(bodyParser.json());
 app.use('/booktravel',booktravelRoute);
 app.use('/booktour',booktourRoute);
