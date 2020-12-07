@@ -66,7 +66,7 @@ export class RegisterComponent implements OnInit {
     this._auth.registerUser(this.registerUserData)
     .subscribe(
       res => {
-        this.snackbar.open('User Registered Successfully', 'Okay!', {
+        this.snackbar.open('You have Registered Successfully', 'Okay!', {
           duration: 4000,
         });
         localStorage.setItem('token', res.token)
