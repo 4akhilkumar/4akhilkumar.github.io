@@ -51,6 +51,9 @@ export class EditprofileComponent implements OnInit {
     if (this.registerUserData.addr.hasError('required')) {
       return 'Address is Required';
     }
+    else if(this.registerUserData.addr.hasError('minlength')){
+      return 'Name must be a minimum length of 2';
+    }
   }
 
   getErrorCity(){
@@ -66,10 +69,10 @@ export class EditprofileComponent implements OnInit {
     if (this.registerUserData.pincode.hasError('required')) {
       return 'Pincode is Required';
     }
-    else if(this.registerUserData.pincode.hasError('minlength')){
+    else if(this.registerUserData.pincode.hasError('pattern')){
       return 'Pincode Must be 6 Digits';
     }
-    else if(this.registerUserData.pincode.hasError('maxlength')){
+    else if(this.registerUserData.pincode.hasError('pattern')){
       return 'Pincode Must be 6 Digits';
     }
   }
@@ -78,10 +81,10 @@ export class EditprofileComponent implements OnInit {
     if (this.registerUserData.phone.hasError('required')) {
       return 'Mobile No. is Required';
     }
-    else if(this.registerUserData.phone.hasError('minlength')){
+    else if(this.registerUserData.phone.hasError('pattern')){
       return 'Mobile No. Must be 10 Digits';
     }
-    else if(this.registerUserData.phone.hasError('maxlength')){
+    else if(this.registerUserData.phone.hasError('pattern')){
       return 'Mobile No. Must be 10 Digits';
     }
   }
