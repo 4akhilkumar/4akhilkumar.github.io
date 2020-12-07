@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
@@ -39,16 +39,16 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  Deleteprofile(){
-    this.auth.getUserId().subscribe((res)=> {
-      this.auth.deleteaccount(res).subscribe(()=>{
-        this.auth.logoutUser()
-        this._router.navigate(['/welcome'])
-        this.snackbar.open('Your WhiN Account is Deleted', 'Okay!', {
-          duration: 4000,
-        });
-      })
-    })
-  }
+  // Deleteprofile(){
+  //   this.auth.getUserId().subscribe((res)=> {
+  //     this.auth.deleteaccount(res).subscribe(()=>{
+  //       this.auth.logoutUser()
+  //       this._router.navigate(['/welcome'])
+  //       this.snackbar.open('Your WhiN Account is Deleted', 'Okay!', {
+  //         duration: 4000,
+  //       });
+  //     })
+  //   })
+  // }
 
 }
