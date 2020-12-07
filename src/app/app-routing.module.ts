@@ -18,6 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AllinoneComponent } from './allinone/allinone.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import { DeleteaccountComponent } from './deleteaccount/deleteaccount.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -39,6 +40,7 @@ const routes: Routes = [
   {path:'allinone',component:AllinoneComponent},
   {path:'profile',component:ProfileComponent,canActivate:[AuthGuard]},
   {path:'editprofile',component:EditprofileComponent,canActivate:[AuthGuard]},
+  {path:'deleteaccount',component:DeleteaccountComponent,canActivate:[AuthGuard]},
   {path:'',component:WelcomeComponent}
 ];
 

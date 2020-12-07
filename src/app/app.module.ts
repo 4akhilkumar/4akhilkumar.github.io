@@ -66,6 +66,7 @@ import { OberoiComponent } from './hospitalityplaces/oberoi/oberoi.component';
 import { AllinoneComponent } from './allinone/allinone.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import { DeleteaccountComponent } from './deleteaccount/deleteaccount.component';
 
 @NgModule({
   declarations: [
@@ -127,6 +128,7 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
     AllinoneComponent,
     ProfileComponent,
     EditprofileComponent,
+    DeleteaccountComponent,
   ],
   imports: [
     BrowserModule,
