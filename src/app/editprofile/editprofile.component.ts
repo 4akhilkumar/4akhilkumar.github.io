@@ -27,40 +27,43 @@ export class EditprofileComponent implements OnInit {
   }
 
   getErrorName() {
-    if (this.registerUserData.name.hasError('Required')) {
-      return 'Name is Required';
+    if (this.registerUserData.name.hasError('required')) {
+      return 'Name is required';
     }
     else if(this.registerUserData.name.hasError('minlength')){
-      return 'Name Must be a Minimum Length of 3';
+      return 'Name must be a minimum length of 3';
     }
   }
 
   getErrorDob(){
-    if (this.registerUserData.dob.hasError('Required')) {
+    if (this.registerUserData.dob.hasError('required')) {
       return 'Date of Birth is Required';
     }
   }
 
   getErrorGender(){
-    if (this.registerUserData.gender.hasError('Required')) {
-      return 'Filling this Field is Required';
+    if (this.registerUserData.gender.hasError('required')) {
+      return 'Filling this field is required';
     }
   }
 
   getErrorAddr() {
-    if (this.registerUserData.addr.hasError('Required')) {
+    if (this.registerUserData.addr.hasError('required')) {
       return 'Address is Required';
     }
   }
 
   getErrorCity(){
-    if (this.registerUserData.city.hasError('Required')) {
+    if (this.registerUserData.city.hasError('required')) {
       return 'City is Required';
+    }
+    else if(this.registerUserData.city.hasError('minlength')){
+      return 'Name must be a minimum length of 2';
     }
   }
 
   getErrorPin(){
-    if (this.registerUserData.pincode.hasError('Required')) {
+    if (this.registerUserData.pincode.hasError('required')) {
       return 'Pincode is Required';
     }
     else if(this.registerUserData.pincode.hasError('minlength')){
@@ -72,7 +75,7 @@ export class EditprofileComponent implements OnInit {
   }
 
   getErrorPhone(){
-    if (this.registerUserData.phone.hasError('Required')) {
+    if (this.registerUserData.phone.hasError('required')) {
       return 'Mobile No. is Required';
     }
     else if(this.registerUserData.phone.hasError('minlength')){
@@ -83,12 +86,12 @@ export class EditprofileComponent implements OnInit {
     }
   }
 
-  getErrorEMail(){
-    if (this.registerUserData.email.hasError('Required')) {
-      return 'Email is Required';
+  getErrorEMail() {
+    if (this.registerUserData.email.hasError('required')) {
+      return 'Email is required';
     }
     else if(this.registerUserData.email.hasError('email')){
-      return 'Email Must be a Valid E - Mail Address';
+      return 'Email must be a valid email Address';
     }
   }
 
