@@ -15,7 +15,7 @@
     </div>
 
 <mat-form-field class="search">
-    <mat-label>Search</mat-label>
+    <mat-label><mat-icon>search</mat-icon>Search</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mumbai" #input>
 </mat-form-field>
 </div>
@@ -71,3 +71,4 @@
     </tr>
   </table>
 </div>
+<mat-paginator [pageSizeOptions]="[5, 10, 15, 20, 25, 30, 35]" showFirstLastButtons></mat-paginator>
