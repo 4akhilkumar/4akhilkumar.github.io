@@ -10,7 +10,7 @@ var decodedToken='';
 function verifyToken(req, res, next) {
     let token=req.query.token;
     console.log(token);
-    jwt.verify(token,'112SecretKey',(err,tokendata)=>{
+    jwt.verify(token,'4848SecretKey',(err,tokendata)=>{
         if(err)
             return res.status(401).send('Unauthorized request')
         if(tokendata){
@@ -35,7 +35,7 @@ UserRoute.route('/register').post((req, res) => {
                 if (error) {
                     console.log("Error While Registering User To Database...!\n" + error)
                 } else {
-                    let token =  jwt.sign({id:registeredUser._id}, '112SecretKey')
+                    let token =  jwt.sign({id:registeredUser._id}, '4848SecretKey')
                     res.status(200).send({token})
                 }
             })
@@ -51,7 +51,7 @@ UserRoute.route('/login').post((req, res) => {
            if (!u) {
               res.status(401).send("Invalid Email...!")
            } else if (bcrypt.compareSync(req.body.password, u.password)){
-              let token =  jwt.sign({id:u._id}, '112SecretKey') 
+              let token =  jwt.sign({id:u._id}, '4848SecretKey') 
               res.status(200).send({token})  
            } else {
               res.status(401).send("Invalid Password...!")
