@@ -36,7 +36,7 @@ export class DeleteaccountComponent implements OnInit {
           this._router.navigate(['/welcome'])
         })
       })
-      alert('Your WhiN is Successfully Deleted\n\nAnd You No longer able to access to your Deleted Account.');
+      alert('Your WhiN Account is Successfully Deleted\n\nAnd You No longer able to access to your Deleted Account.');
   }
 
   onReset() {
