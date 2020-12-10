@@ -17,7 +17,8 @@ export class DeleteaccountComponent implements OnInit {
 
   ngOnInit() {
       this.form = this.formBuilder.group({
-          acceptTerms: [false, Validators.requiredTrue]
+          acceptTerms: [false, Validators.requiredTrue],
+          acceptTerms2: [false, Validators.requiredTrue]
       });
   }
 

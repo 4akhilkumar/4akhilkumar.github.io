@@ -35,9 +35,9 @@
                     <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Please acknowledge.</div>
                 </div>
                 <div class="form-group form-check" style="color: #202124; font-weight: 475;">
-                    <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
-                    <label for="acceptTerms" class="form-check-label">Yes, I want to permanently delete this Google Account and all its data.</label>
-                    <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Please confirm that you wish to delete this WhiN Account.</div>
+                    <input type="checkbox" formControlName="acceptTerms2" id="acceptTerms2" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms2.errors }" />
+                    <label for="acceptTerms2" class="form-check-label">Yes, I want to permanently delete this Google Account and all its data.</label>
+                    <div *ngIf="submitted && f.acceptTerms2.errors" class="invalid-feedback">Please confirm that you wish to delete this WhiN Account.</div>
                 </div>
                 <div>
                     <button mat-raised-button style="margin-left: 5px; color: tomato;">
