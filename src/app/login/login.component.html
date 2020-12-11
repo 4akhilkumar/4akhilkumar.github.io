@@ -16,7 +16,7 @@
   </div>
   <div fxLayoutAlign="center center" style="padding: 40px;">
     <div fxLayout="column" fxLayoutAlign="" class="login-card">
-      <mat-card class="example-card">
+      <mat-card class="example-card" method="post">
         <mat-toolbar class="title" color="primary">
           <span class="material-icons">login</span>Login</mat-toolbar>
               <div fxLayout="column" fxLayoutAlign="center center">
@@ -41,6 +41,7 @@
                 </div>
                 <p class="agree" (click)="openDialogTandC()">By Login, You accept our terms & conditions</p>
               </div>
+              <div fxLayout="row" fxLayoutAlign="center" class="g-recaptcha" data-sitekey="6LdiMAEaAAAAAOWOfGoq2QuKe9E3JLz75B7LEbmf"></div>
               <div fxLayout="row" fxLayoutAlign="center" style="margin-bottom: 5px;">
                 <button mat-raised-button (click)="loginUser()" [disabled]="loginUserData.password.invalid || loginUserData.email.invalid" class="example-button">Login</button>
               </div>
