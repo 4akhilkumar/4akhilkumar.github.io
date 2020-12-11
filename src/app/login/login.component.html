@@ -16,7 +16,7 @@
   </div>
   <div fxLayoutAlign="center center" style="padding: 40px;">
     <div fxLayout="column" fxLayoutAlign="" class="login-card">
-      <mat-card class="example-card" method="post">
+      <mat-card class="example-card" class="recaptchaForm" method="post">
         <mat-toolbar class="title" color="primary">
           <span class="material-icons">login</span>Login</mat-toolbar>
               <div fxLayout="column" fxLayoutAlign="center center">
@@ -49,3 +49,23 @@
       </mat-card>
   </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+  $(".recaptchaForm").on('submit',function(event){
+    var recaptcha = $("#g-recaptcha-response").val();
+    if(recaptcha===""){
+      event.preventDefault();
+      alert("Please Check the Recaptcha");
+    }
+    event.preventDefault();
+    
+    $.post("submit.php",{
+      "secret":"6LdiMAEaAAAAAA1-sT0j2Q2PzviMRseN39xUqWYo",
+      "response":recaptcha
+    },function(response){
+      console.log(response)
+    })
+  })
+  });
+</script>

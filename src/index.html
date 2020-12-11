@@ -141,23 +141,4 @@
   };
   setTimeout(function(){const t=document.createElement('script');t.src='https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js';document.head.appendChild(t);});
 </script>
-<script>
-  $(document).ready(function(){
-  $(".example-card").on('submit',function(event){
-    var recaptcha = $("#g-recaptcha-response").val();
-    if(recaptcha===""){
-      event.preventDefault();
-      alert("Please Check the Recaptcha");
-    }
-    event.preventDefault();
-    
-    $.post("submit.php",{
-      "secret":"6LdiMAEaAAAAAA1-sT0j2Q2PzviMRseN39xUqWYo",
-      "response":recaptcha
-    },function(response){
-      console.log(response)
-    })
-  })
-  });
-</script>
 </html>
