@@ -41,7 +41,6 @@
                 </div>
                 <p class="agree" (click)="openDialogTandC()">By Login, You accept our terms & conditions</p>
               </div>
-              <div fxLayout="row" fxLayoutAlign="center" class="g-recaptcha" data-sitekey="6LdiMAEaAAAAAOWOfGoq2QuKe9E3JLz75B7LEbmf"></div>
               <div fxLayout="row" fxLayoutAlign="center" style="margin-bottom: 5px;">
                 <button mat-raised-button (click)="loginUser()" [disabled]="loginUserData.password.invalid || loginUserData.email.invalid" class="example-button">Login</button>
               </div>
@@ -49,23 +48,3 @@
       </mat-card>
   </div>
 </div>
-
-<script>
-  $(document).ready(function(){
-  $(".example-card").submit(function(event){
-    var recaptcha = $("#g-recaptcha-response").val();
-    if(recaptcha===""){
-      event.preventDefault();
-      alert("Please Check the Recaptcha");
-    }
-    event.preventDefault();
-    
-    $.post("submit.php",{
-      "secret":"6LdiMAEaAAAAAA1-sT0j2Q2PzviMRseN39xUqWYo",
-      "response":recaptcha
-    },function(ajaxResponse){
-      console.log(ajaxResponse);
-    });
-  });
-  });
-</script>
