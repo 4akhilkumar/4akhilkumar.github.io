@@ -12,6 +12,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RecaptchaModule } from 'ng-recaptcha';
+
 import { HospitalityComponent } from './hospitality/hospitality.component';
 import { TravelComponent } from './travel/travel.component';
 import { TourismComponent } from './tourism/tourism.component';
@@ -138,7 +140,8 @@ import { DeleteaccountComponent } from './deleteaccount/deleteaccount.component'
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RecaptchaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
