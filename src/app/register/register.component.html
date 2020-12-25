@@ -55,7 +55,9 @@
               <mat-error *ngIf="registerData.password.invalid">{{getError()}}</mat-error>
             </mat-form-field>
           </div>
-          <re-captcha (resolved)="resolved($event)" (error)="onError($event)" errorMode="handled" siteKey="6LfiBhQaAAAAAOkMOhj1vaTIWMzXfJZuHoIuYFUS"></re-captcha>
+          <div>
+            <re-captcha (resolved)="resolved($event)" siteKey="6LfiBhQaAAAAAOkMOhj1vaTIWMzXfJZuHoIuYFUS"></re-captcha>
+          </div>
           <p class="agree" (click)="openDialogTandC()">By registering, You accept our terms & conditions</p>
         </div>
         <div fxLayout="row" fxLayoutAlign="center">

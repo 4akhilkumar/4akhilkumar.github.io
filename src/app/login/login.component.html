@@ -39,6 +39,9 @@
                     <mat-error *ngIf="loginUserData.password.invalid">{{getError()}}</mat-error>
                   </mat-form-field>
                 </div>
+                <div>
+                  <re-captcha (resolved)="resolved($event)" siteKey="6LfiBhQaAAAAAOkMOhj1vaTIWMzXfJZuHoIuYFUS"></re-captcha>
+                </div>
                 <p class="agree" (click)="openDialogTandC()">By Login, You accept our terms & conditions</p>
               </div>
               <div fxLayout="row" fxLayoutAlign="center" style="margin-bottom: 5px;">
