@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  OpenMyGitHubAccount(){
+    window.open("https://github.com/4akhilkumar", '_blank');
+  }
+
   constructor() { }
 
   ngOnInit(): void {
