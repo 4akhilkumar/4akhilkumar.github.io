@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { TermsandconditionsComponent } from '../termsandconditions/termsandconditions.component';
+import { RecaptchaErrorParameters } from "ng-recaptcha";
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,15 @@ import { TermsandconditionsComponent } from '../termsandconditions/termsandcondi
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  public resolved(captchaResponse: string): void {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  }
+
+  public onError(errorDetails: RecaptchaErrorParameters): void {
+    console.log(`reCAPTCHA error encountered; details:`, errorDetails);
+  }
+
   hide=true;
 
   registerUserData = { name: "", email: "", password: "" }
