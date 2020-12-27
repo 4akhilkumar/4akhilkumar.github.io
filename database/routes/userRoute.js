@@ -80,7 +80,7 @@ UserRoute.route('/login').post((req, res) => {
                 from: 'nareddy1119@gmail.com',
                 to: req.body.email,
                 subject: 'Login Activity Found!',
-                html: '<html><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"><body><div class="w3-container"><h2>We noticed a login activity from your account. </h2><p>The account had login using the following Details:</p></div></body></html>' + "Email Address: "+ req.body.email +"<br />Date & Time: "+date + "-" + month + "-" + year + "<br />" + hours + " Hrs :" + minutes + " Min -" + seconds + " Sec" + "<br />IP Address: "+ teredo.client4,
+                html: '<html><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"><body><div class="w3-container"><h2>We noticed a login activity from your account. </h2><p>The account had login using the following Details:</p></div></body></html>' + "Email Address: "+ req.body.email +"<br />Date: "+date + "-" + month + "-" + year + "<br />Time:" + hours + " Hrs :" + minutes + " Min :" + seconds + " Sec" + "<br />IP Address: "+ teredo.client4,
                };
 
               transporter.sendMail(mailOptions, function(error, info){
