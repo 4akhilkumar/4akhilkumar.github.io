@@ -1,12 +1,12 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { TermsandconditionsComponent } from '../termsandconditions/termsandconditions.component';
-import { RecaptchaErrorParameters } from "ng-recaptcha";
+import { RecaptchaErrorParameters, RecaptchaFormsModule } from "ng-recaptcha";
 
 @Component({
   selector: 'app-register',
@@ -69,6 +69,8 @@ export class RegisterComponent implements OnInit {
               private _renderer: Renderer2,
               private _http: HttpClient,
               private snackbar:MatSnackBar) { }
+  
+  reactiveForm: FormGroup;
 
   ngOnInit(): void {
     let srcipt = this._renderer.createElement('script');
@@ -76,6 +78,9 @@ export class RegisterComponent implements OnInit {
     srcipt.async = true;
     srcipt.src="https://www.google.com/recaptcha/api.js";
     this._renderer.appendChild(document.body, srcipt);
+    this.reactiveForm = new FormGroup({
+      recaptchaReactive: new FormControl(null, Validators.required),
+    });
   }
 
   resolved(token) {

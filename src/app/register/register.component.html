@@ -55,13 +55,13 @@
               <mat-error *ngIf="registerData.password.invalid">{{getError()}}</mat-error>
             </mat-form-field>
           </div>
-          <div>
-            <re-captcha (resolved)="resolved($event)" siteKey="6LfiBhQaAAAAAOkMOhj1vaTIWMzXfJZuHoIuYFUS"></re-captcha>
-          </div>
+          <form [formGroup]="reactiveForm">
+            <re-captcha formControlName="recaptchaReactive" (resolved)="resolved($event)" siteKey="6LfiBhQaAAAAAOkMOhj1vaTIWMzXfJZuHoIuYFUS"></re-captcha>
+          </form>
           <p class="agree" (click)="openDialogTandC()">By registering, You accept our terms & conditions</p>
         </div>
         <div fxLayout="row" fxLayoutAlign="center">
-          <button mat-raised-button (click)="registerUser()" [disabled]="registerData.password.invalid || registerData.name.invalid || registerData.email.invalid" class="example-button">Register</button>
+          <button mat-raised-button (click)="registerUser()" [disabled]="registerData.password.invalid || registerData.name.invalid ||  registerData.email.invalid" class="example-button">Register</button>
         </div>
         <p class="agree1" style="cursor: pointer;outline:none" routerLink="/login">Already a Part in WhiN? Click here to Login</p><hr>
       </mat-card>
