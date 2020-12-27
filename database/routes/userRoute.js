@@ -2,9 +2,31 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const user=require('../models/user');
 const express=require('express');
-
 const UserRoute=express.Router();
 
+var Address6 = require('ip-address').Address6;
+var address = new Address6('2001:0:ce49:7601:e866:efff:62c3:fffe');
+var teredo = address.inspectTeredo();
+// teredo.client4;
+
+let ts = Date.now();
+let date_ob = new Date(ts);
+let date = date_ob.getDate();
+let month = date_ob.getMonth() + 1;
+let year = date_ob.getFullYear();
+let seconds = date_ob.getSeconds();
+let minutes = date_ob.getMinutes();
+let hours = date_ob.getHours();
+ 
+var nodemailer = require('nodemailer'); 
+  
+let transporter = nodemailer.createTransport({ 
+    service: 'gmail', 
+    auth: { 
+        user: 'nareddy1119@gmail.com', 
+        pass: 'NARaccount@1119'
+    } 
+});
 
 var decodedToken='';
 function verifyToken(req, res, next) {
@@ -51,8 +73,24 @@ UserRoute.route('/login').post((req, res) => {
            if (!u) {
               res.status(401).send("Invalid Email...!")
            } else if (bcrypt.compareSync(req.body.password, u.password)){
-              let token =  jwt.sign({id:u._id}, '4848SecretKey') 
-              res.status(200).send({token})  
+              let token =  jwt.sign({id:u._id}, '4848SecretKey')
+              res.status(200).send({token})
+              // The Code Lines to send E - Mail
+              let mailOptions = {
+                from: 'nareddy1119@gmail.com',
+                to: req.body.email,
+                subject: 'Login Activity Found!',
+                html: '<html><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"><body><div class="w3-container"><h2>We noticed a login activity from your account. </h2><p>The account had login using the following Details:</p></div></body></html>' + "Email Address: "+ req.body.email +"<br />Date & Time: "+date + "-" + month + "-" + year + "<br />" + hours + " Hrs :" + minutes + " Min -" + seconds + " Sec" + "<br />IP Address: "+ teredo.client4,
+               };
+
+              transporter.sendMail(mailOptions, function(error, info){
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log('Email sent: ' + info.response);
+                }
+              });
+              // The Code Lines to send E - Mail
            } else {
               res.status(401).send("Invalid Password...!")
            }
