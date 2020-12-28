@@ -4,11 +4,6 @@ const user=require('../models/user');
 const express=require('express');
 const UserRoute=express.Router();
 
-var Address6 = require('ip-address').Address6;
-var address = new Address6('2001:0:ce49:7601:e866:efff:62c3:fffe');
-var teredo = address.inspectTeredo();
-// teredo.client4;
-
 let ts = Date.now();
 let date_ob = new Date(ts);
 let date = date_ob.getDate();
@@ -59,6 +54,22 @@ UserRoute.route('/register').post((req, res) => {
                 } else {
                     let token =  jwt.sign({id:registeredUser._id}, '4848SecretKey')
                     res.status(200).send({token})
+                    // The Code Lines to send E - Mail
+                    let mailOptions = {
+                        from: 'nareddy1119@gmail.com',
+                        to: req.body.email,
+                        subject: 'Welcome to WhiN!',
+                        html: '<html><body><div class="w3-container"><h2>Thank You, For registering. </h2><p>Your account is created using the following Details:</p></div></body></html>' + "Email Address: "+ req.body.email +"<br />Date: "+date + "-" + month + "-" + year + "<br />Time: " + hours + " Hrs:" + minutes + " Min:" + seconds + " Sec",
+                    };
+
+                    transporter.sendMail(mailOptions, function(error, info){
+                        if (error) {
+                        console.log(error);
+                        } else {
+                        console.log('Email sent: ' + info.response);
+                        }
+                    });
+                    // The Code Lines to send E - Mail
                 }
             })
         }
@@ -80,7 +91,7 @@ UserRoute.route('/login').post((req, res) => {
                 from: 'nareddy1119@gmail.com',
                 to: req.body.email,
                 subject: 'Login Activity Found!',
-                html: '<html><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"><body><div class="w3-container"><h2>We noticed a login activity from your account. </h2><p>The account had login using the following Details:</p></div></body></html>' + "Email Address: "+ req.body.email +"<br />Date: "+date + "-" + month + "-" + year + "<br />Time:" + hours + " Hrs :" + minutes + " Min :" + seconds + " Sec" + "<br />IP Address: "+ teredo.client4,
+                html: '<html><body><div class="w3-container"><h2>We noticed a login activity from your account. </h2><p>The account had login using the following Details:</p></div></body></html>' + "Email Address: "+ req.body.email +"<br />Date: "+date + "-" + month + "-" + year + "<br />Time: " + hours + " Hrs:" + minutes + " Min:" + seconds + " Sec",
                };
 
               transporter.sendMail(mailOptions, function(error, info){
