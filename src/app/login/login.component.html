@@ -45,7 +45,7 @@
                 <p class="agree" (click)="openDialogTandC()">By Login, You accept our terms & conditions</p>
               </div>
               <div fxLayout="row" fxLayoutAlign="center" style="margin-bottom: 5px;">
-                <button mat-raised-button (click)="loginUser()" [disabled]="loginUserData.password.invalid  || loginUserData.email.invalid" class="example-button">Login</button>
+                <button mat-raised-button (click)="loginUser()" [disabled]="loginUserData.password.invalid || reactiveForm.invalid || loginUserData.email.invalid" class="example-button">Login</button>
               </div>
               <p class="text" style="cursor: pointer;outline:none" routerLink="/register">New to WhiN? Create an Account</p>
       </mat-card>
