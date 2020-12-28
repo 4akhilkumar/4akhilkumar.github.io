@@ -53,7 +53,7 @@ app.use('/user',userRoute);
 app.post('/verify', (req, res)=>{
       
     let token = req.body.recaptcha;
-    const secretKey = "6LfiBhQaAAAAALj72o9LBq7ruMMJe_WgCDIYK8WZ";
+    const secretKey = "6Le12RcaAAAAALpdg6kdxf9oRpQNIKadGdhZBK9C";
     
     const url =  `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}&remoteip=${req.connection.remoteAddress}`    
     if(token === null || token === undefined){
