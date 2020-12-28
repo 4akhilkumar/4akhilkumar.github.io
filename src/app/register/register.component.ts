@@ -18,14 +18,13 @@ export class RegisterComponent implements OnInit {
   // public resolved(captchaResponse: string): void {
   //   console.log(`Resolved captcha with response: ${captchaResponse}`);
   // }
-  token;
   
   // public onError(errorDetails: RecaptchaErrorParameters): void {
   //   console.log(`reCAPTCHA error encountered; details:`, errorDetails);
   // }
 
+  token;
   hide=true;
-
   registerUserData = { name: "", email: "", password: "" }
   
   registerData={
