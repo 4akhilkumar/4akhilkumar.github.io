@@ -15,14 +15,6 @@ import { RecaptchaErrorParameters, RecaptchaFormsModule } from "ng-recaptcha";
 })
 export class RegisterComponent implements OnInit {
 
-  // public resolved(captchaResponse: string): void {
-  //   console.log(`Resolved captcha with response: ${captchaResponse}`);
-  // }
-  
-  // public onError(errorDetails: RecaptchaErrorParameters): void {
-  //   console.log(`reCAPTCHA error encountered; details:`, errorDetails);
-  // }
-
   token;
   hide=true;
   registerUserData = { name: "", email: "", password: "" }
@@ -70,6 +62,15 @@ export class RegisterComponent implements OnInit {
               private snackbar:MatSnackBar) { }
   
   reactiveForm: FormGroup;
+  
+  // public resolved(captchaResponse: string): void {
+  //   console.log(`Resolved captcha with response: ${captchaResponse}`);
+  //   this.token = captchaResponse;
+  // }
+
+  public onError(errorDetails: RecaptchaErrorParameters): void {
+    console.log(`reCAPTCHA error encountered; details:`, errorDetails);
+  }
 
   ngOnInit(): void {
     let srcipt = this._renderer.createElement('script');
