@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { RecaptchaErrorParameters } from 'ng-recaptcha';
 import { AuthService } from '../auth.service';
 import { TermsandconditionsComponent } from '../termsandconditions/termsandconditions.component';
 
@@ -53,6 +54,15 @@ export class LoginComponent implements OnInit {
 
   reactiveForm: FormGroup;
 
+  // public resolved(captchaResponse: string): void {
+  //   console.log(`Resolved captcha with response: ${captchaResponse}`);
+  //   this.token = captchaResponse;
+  // }
+
+  public onError(errorDetails: RecaptchaErrorParameters): void {
+    console.log(`reCAPTCHA error encountered; details:`, errorDetails);
+  }
+  
   ngOnInit(): void {
     let srcipt = this._renderer.createElement('script');
     srcipt.defer = true;
