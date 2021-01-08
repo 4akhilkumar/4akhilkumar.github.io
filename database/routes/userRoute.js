@@ -4,25 +4,6 @@ const user=require('../models/user');
 const express=require('express');
 const UserRoute=express.Router();
 
-let ts = Date.now();
-let date_ob = new Date(ts);
-let date = date_ob.getDate();
-let month = date_ob.getMonth() + 1;
-let year = date_ob.getFullYear();
-let seconds = date_ob.getSeconds();
-let minutes = date_ob.getMinutes();
-let hours = date_ob.getHours();
- 
-var nodemailer = require('nodemailer'); 
-  
-let transporter = nodemailer.createTransport({ 
-    service: 'gmail', 
-    auth: { 
-        user: '4projtest@gmail.com', 
-        pass: 'TESTINGgmail@20'
-    } 
-});
-
 var decodedToken='';
 function verifyToken(req, res, next) {
     let token=req.query.token;
@@ -54,22 +35,6 @@ UserRoute.route('/register').post((req, res) => {
                 } else {
                     let token =  jwt.sign({id:registeredUser._id}, '4848SecretKey')
                     res.status(200).send({token})
-                    // The Code Lines to send E - Mail
-                    let mailOptions = {
-                        from: 'nareddy1119@gmail.com',
-                        to: req.body.email,
-                        subject: 'Welcome to WhiN!',
-                        html: '<html><body><div class="w3-container"><h2>Thank You, For registering. </h2><p>Your account is created using the following Details:</p></div></body></html>' + "Email Address: "+ req.body.email +"<br />Date: "+date + "-" + month + "-" + year + "<br />Time: " + hours + " Hrs:" + minutes + " Min:" + seconds + " Sec",
-                    };
-
-                    transporter.sendMail(mailOptions, function(error, info){
-                        if (error) {
-                        console.log(error);
-                        } else {
-                        console.log('Email sent: ' + info.response);
-                        }
-                    });
-                    // The Code Lines to send E - Mail
                 }
             })
         }
@@ -86,22 +51,6 @@ UserRoute.route('/login').post((req, res) => {
            } else if (bcrypt.compareSync(req.body.password, u.password)){
               let token =  jwt.sign({id:u._id}, '4848SecretKey')
               res.status(200).send({token})
-              // The Code Lines to send E - Mail
-              let mailOptions = {
-                from: 'nareddy1119@gmail.com',
-                to: req.body.email,
-                subject: 'Login Activity Found!',
-                html: '<html><body><div class="w3-container"><h2>We noticed a login activity from your account. </h2><p>The account had login using the following Details:</p></div></body></html>' + "Email Address: "+ req.body.email +"<br />Date: "+date + "-" + month + "-" + year + "<br />Time: " + hours + " Hrs:" + minutes + " Min:" + seconds + " Sec",
-               };
-
-              transporter.sendMail(mailOptions, function(error, info){
-                if (error) {
-                  console.log(error);
-                } else {
-                  console.log('Email sent: ' + info.response);
-                }
-              });
-              // The Code Lines to send E - Mail
            } else {
               res.status(401).send("Invalid Password...!")
            }
