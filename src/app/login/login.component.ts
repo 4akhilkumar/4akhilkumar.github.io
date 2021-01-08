@@ -1,5 +1,5 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -15,8 +15,6 @@ import { TermsandconditionsComponent } from '../termsandconditions/termsandcondi
 })
 export class LoginComponent implements OnInit {
 
-  token; 
-  
   openDialogTandC(){
     this.dialog.open(TermsandconditionsComponent,{width:'500px',height:'700px'})
   }
@@ -48,44 +46,22 @@ export class LoginComponent implements OnInit {
   hide = true;
   constructor(private _auth: AuthService,
               public dialog: MatDialog,
-              private _renderer: Renderer2,
-              private _http: HttpClient,
               private _router: Router,private snackbar:MatSnackBar) { }
 
   reactiveForm: FormGroup;
 
-  // public resolved(captchaResponse: string): void {
-  //   console.log(`Resolved captcha with response: ${captchaResponse}`);
-  //   this.token = captchaResponse;
-  // }
+  public resolved(captchaResponse: string): void {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  }
 
   public onError(errorDetails: RecaptchaErrorParameters): void {
     console.log(`reCAPTCHA error encountered; details:`, errorDetails);
   }
   
   ngOnInit(): void {
-    let srcipt = this._renderer.createElement('script');
-    srcipt.defer = true;
-    srcipt.async = true;
-    srcipt.src="https://www.google.com/recaptcha/api.js";
-    this._renderer.appendChild(document.body, srcipt);
     this.reactiveForm = new FormGroup({
       recaptchaReactive: new FormControl(null, Validators.required),
     });
-  }
-
-  resolved(token) {
-    console.log(token);
-    this.token = token;
-  }
-
-  verify(){
-    console.log(this.token);
-    this._http.post('http://localhost:3000/verify',{token: this.token}).subscribe(
-      res => {
-        console.log("success or not ?", res);
-      }
-    )
   }
 
   loginUser () {
